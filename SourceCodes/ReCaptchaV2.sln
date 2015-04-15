@@ -22,6 +22,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99_Tests", "99_Tests", "{48
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReCaptchaV2.Wrapper", "03_Services\ReCaptchaV2.Wrapper\ReCaptchaV2.Wrapper.csproj", "{18B04A68-6C05-48E3-B603-7371A47A425D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReCaptcha.Wrapper.Tests", "99_Tests\ReCaptcha.Wrapper.Tests\ReCaptcha.Wrapper.Tests.csproj", "{F0393746-7CCB-4FF3-84CE-33F4755BC769}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FADEE226-B498-42EC-BF5E-A10FE44420E0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +39,10 @@ Global
 		{18B04A68-6C05-48E3-B603-7371A47A425D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18B04A68-6C05-48E3-B603-7371A47A425D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18B04A68-6C05-48E3-B603-7371A47A425D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0393746-7CCB-4FF3-84CE-33F4755BC769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0393746-7CCB-4FF3-84CE-33F4755BC769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0393746-7CCB-4FF3-84CE-33F4755BC769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0393746-7CCB-4FF3-84CE-33F4755BC769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +50,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B5941A87-7769-4210-8E62-23996808B39F} = {CC353A73-E295-4F57-A4BC-35A5C01814E2}
 		{18B04A68-6C05-48E3-B603-7371A47A425D} = {340B31F6-7324-48CA-8C59-853A61977AC1}
+		{F0393746-7CCB-4FF3-84CE-33F4755BC769} = {4831C665-3C48-437F-A7E6-35D3C5DE9830}
 	EndGlobalSection
 EndGlobal

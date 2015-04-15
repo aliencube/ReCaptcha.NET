@@ -33,21 +33,6 @@ namespace Aliencube.ReCaptchaV2.Wrapper
         }
 
         /// <summary>
-        /// Verifies the request.
-        /// </summary>
-        /// <param name="request"><c>ReCaptchaV2Request</c> object.</param>
-        /// <returns>Returns <c>ReCaptchaV2Response</c> object.</returns>
-        public ReCaptchaV2Response SiteVerify(ReCaptchaV2Request request)
-        {
-            if (request == null)
-            {
-                throw new ArgumentNullException("request");
-            }
-
-            return this.SiteVerifyAsync(request).Result;
-        }
-
-        /// <summary>
         /// Verifies the request asynchronously.
         /// </summary>
         /// <param name="request"><c>ReCaptchaV2Request</c> object.</param>
@@ -69,7 +54,7 @@ namespace Aliencube.ReCaptchaV2.Wrapper
         /// </summary>
         /// <param name="request"><c>ReCaptchaV2Request</c> object.</param>
         /// <returns>Returns the response body as a JSON format.</returns>
-        private async Task<string> GetResponseBodyAsync(ReCaptchaV2Request request)
+        public async Task<string> GetResponseBodyAsync(ReCaptchaV2Request request)
         {
             if (request == null)
             {
@@ -94,7 +79,7 @@ namespace Aliencube.ReCaptchaV2.Wrapper
         /// </summary>
         /// <param name="request"><c>ReCaptchaV2Request</c> object.</param>
         /// <returns>Returns the request body.</returns>
-        private string GetRequestBody(ReCaptchaV2Request request)
+        public string GetRequestBody(ReCaptchaV2Request request)
         {
             if (request == null)
             {

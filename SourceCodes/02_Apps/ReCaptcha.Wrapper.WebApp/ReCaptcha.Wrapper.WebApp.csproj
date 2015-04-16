@@ -114,6 +114,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\03_Services\ReCaptcha.Wrapper.Mvc\ReCaptcha.Wrapper.Mvc.csproj">
+      <Project>{a7872c3d-4843-41d5-90f5-defd04470b36}</Project>
+      <Name>ReCaptcha.Wrapper.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03_Services\ReCaptcha.Wrapper\ReCaptcha.Wrapper.csproj">
+      <Project>{18b04a68-6c05-48e3-b603-7371a47a425d}</Project>
+      <Name>ReCaptcha.Wrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

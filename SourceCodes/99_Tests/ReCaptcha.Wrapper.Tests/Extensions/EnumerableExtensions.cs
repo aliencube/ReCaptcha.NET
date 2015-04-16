@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Aliencube.ReCaptcha.Wrapper.Tests
+namespace Aliencube.ReCaptcha.Wrapper.Tests.Extensions
 {
     /// <summary>
     /// This represents the entity for <c>IEnumerable</c> extensions.

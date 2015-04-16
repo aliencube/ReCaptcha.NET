@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Aliencube.ReCaptcha.Wrapper.Extensions;
 using Aliencube.ReCaptcha.Wrapper.Interfaces;
 using Newtonsoft.Json;
 

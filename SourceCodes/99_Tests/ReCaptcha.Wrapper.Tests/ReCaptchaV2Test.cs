@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Aliencube.ReCaptcha.Wrapper.Interfaces;
+using Aliencube.ReCaptcha.Wrapper.Tests.Extensions;
 using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;

@@ -48,7 +48,7 @@
     <Compile Include="..\..\..\Documents\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="DictionaryExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
     <Compile Include="Interfaces\IReCaptchaV2.cs" />
     <Compile Include="Interfaces\IReCaptchaV2Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

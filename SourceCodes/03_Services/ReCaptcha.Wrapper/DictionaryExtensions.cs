@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Aliencube.ReCaptchaV2.Wrapper
+namespace Aliencube.ReCaptcha.Wrapper
 {
     /// <summary>
     /// This represents the entity for Dictionary extensions.

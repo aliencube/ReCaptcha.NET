@@ -7,8 +7,8 @@
     <ProjectGuid>{18B04A68-6C05-48E3-B603-7371A47A425D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aliencube.ReCaptchaV2.Wrapper</RootNamespace>
-    <AssemblyName>Aliencube.ReCaptchaV2.Wrapper</AssemblyName>
+    <RootNamespace>Aliencube.ReCaptcha.Wrapper</RootNamespace>
+    <AssemblyName>Aliencube.ReCaptcha.Wrapper</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

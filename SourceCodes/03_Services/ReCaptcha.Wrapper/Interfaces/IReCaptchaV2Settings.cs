@@ -1,6 +1,6 @@
 using System;
 
-namespace Aliencube.ReCaptchaV2.Wrapper.Interfaces
+namespace Aliencube.ReCaptcha.Wrapper.Interfaces
 {
     /// <summary>
     /// This provides interfaces to the <c>ReCaptchaV2Settings</c> class.

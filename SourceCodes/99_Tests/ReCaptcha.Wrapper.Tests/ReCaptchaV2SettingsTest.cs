@@ -1,5 +1,4 @@
-﻿using Aliencube.ReCaptchaV2.Wrapper;
-using Aliencube.ReCaptchaV2.Wrapper.Interfaces;
+﻿using Aliencube.ReCaptcha.Wrapper.Interfaces;
 using FluentAssertions;
 using NUnit.Framework;
 

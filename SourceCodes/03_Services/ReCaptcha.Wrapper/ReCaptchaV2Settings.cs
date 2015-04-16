@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using Aliencube.ReCaptchaV2.Wrapper.Interfaces;
+using Aliencube.ReCaptcha.Wrapper.Interfaces;
 
-namespace Aliencube.ReCaptchaV2.Wrapper
+namespace Aliencube.ReCaptcha.Wrapper
 {
     /// <summary>
     /// This represents the configuration section entity for ReCaptcha settings.

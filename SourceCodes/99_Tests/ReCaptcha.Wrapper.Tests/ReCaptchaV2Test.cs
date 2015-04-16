@@ -1,7 +1,7 @@
 ﻿using System;
-using Aliencube.ReCaptchaV2.Wrapper;
-using Aliencube.ReCaptchaV2.Wrapper.Interfaces;
+using Aliencube.ReCaptcha.Wrapper.Interfaces;
 using FluentAssertions;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Aliencube.ReCaptcha.Wrapper.Tests
@@ -16,7 +16,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Tests
         public void Init()
         {
             this._settings = ReCaptchaV2Settings.CreateInstance();
-            this._reCaptcha = new ReCaptchaV2.Wrapper.ReCaptchaV2(this._settings);
+            this._reCaptcha = Substitute.For<ReCaptchaV2>(this._settings);
         }
 
         [TearDown]

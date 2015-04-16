@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyCompany("Aliencube Community")]
-[assembly: AssemblyProduct("ReCaptchaV2.NET")]
+[assembly: AssemblyProduct("ReCaptcha.NET")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("Aliencube")]
 [assembly: AssemblyCulture("")]

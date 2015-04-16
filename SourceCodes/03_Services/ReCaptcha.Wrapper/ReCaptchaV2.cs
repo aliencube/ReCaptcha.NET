@@ -4,10 +4,10 @@ using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Aliencube.ReCaptchaV2.Wrapper.Interfaces;
+using Aliencube.ReCaptcha.Wrapper.Interfaces;
 using Newtonsoft.Json;
 
-namespace Aliencube.ReCaptchaV2.Wrapper
+namespace Aliencube.ReCaptcha.Wrapper
 {
     /// <summary>
     /// This represents the wrapper entity for ReCaptcha V2 API (https://google.com/recaptcha).

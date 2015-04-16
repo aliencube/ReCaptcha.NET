@@ -88,9 +88,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\03_Services\ReCaptchaV2.Wrapper\ReCaptchaV2.Wrapper.csproj">
+    <ProjectReference Include="..\..\03_Services\ReCaptcha.Wrapper\ReCaptcha.Wrapper.csproj">
       <Project>{18b04a68-6c05-48e3-b603-7371a47a425d}</Project>
-      <Name>ReCaptchaV2.Wrapper</Name>
+      <Name>ReCaptcha.Wrapper</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

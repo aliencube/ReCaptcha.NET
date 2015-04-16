@@ -1,4 +1,4 @@
-namespace Aliencube.ReCaptchaV2.Wrapper
+namespace Aliencube.ReCaptcha.Wrapper
 {
     /// <summary>
     /// This represents the request entity for ReCaptcha V2.

@@ -10,6 +10,35 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
     public static class ReCaptchaExtensions
     {
         /// <summary>
+        /// Renders the JavaScript control to render the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="src">JavaScript reference source.</param>
+        /// <returns>Returns the JavaScript control to render the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src)
+        {
+            var htmlAttributes = new Dictionary<string, object>()
+                                     {
+                                         { "src", src },
+                                     };
+            return htmlHelper.ReCaptchaApiJs(htmlAttributes);
+        }
+
+        /// <summary>
+        /// Renders the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="htmlAttributes">List of HTML attributes.</param>
+        /// <returns>Returns the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
+        {
+            var builder = new TagBuilder("script");
+            builder.MergeAttributes(htmlAttributes);
+
+            return builder.ToMvcHtmlString(TagRenderMode.Normal);
+        }
+
+        /// <summary>
         /// Renders the reCaptcha HTML control.
         /// </summary>
         /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
@@ -34,7 +63,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             var htmlAttributes = new Dictionary<string, object>()
                                      {
                                          { "class", className },
-                                         { "data-sitekey", siteKey }
+                                         { "data-sitekey", siteKey },
                                      };
             return htmlHelper.ReCaptcha(htmlAttributes);
         }

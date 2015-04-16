@@ -54,7 +54,7 @@ namespace Aliencube.ReCaptcha.Wrapper
         /// </summary>
         /// <param name="request"><c>ReCaptchaV2Request</c> object.</param>
         /// <returns>Returns the response body as a JSON format.</returns>
-        public async Task<string> GetResponseBodyAsync(ReCaptchaV2Request request)
+        public virtual async Task<string> GetResponseBodyAsync(ReCaptchaV2Request request)
         {
             if (request == null)
             {

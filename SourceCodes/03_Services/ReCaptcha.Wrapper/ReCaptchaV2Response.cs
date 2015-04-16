@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aliencube.ReCaptcha.Wrapper
 {
@@ -15,6 +16,7 @@ namespace Aliencube.ReCaptcha.Wrapper
         /// <summary>
         /// Gets or sets the list of error codes, if the request was not successful.
         /// </summary>
+        [JsonProperty(PropertyName = "error-codes")]
         public List<string> ErrorCodes { get; set; }
     }
 }

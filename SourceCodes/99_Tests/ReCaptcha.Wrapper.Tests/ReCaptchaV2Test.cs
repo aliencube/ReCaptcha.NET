@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Aliencube.ReCaptcha.Wrapper.Interfaces;
 using FluentAssertions;
 using NSubstitute;
@@ -16,7 +18,6 @@ namespace Aliencube.ReCaptcha.Wrapper.Tests
         public void Init()
         {
             this._settings = ReCaptchaV2Settings.CreateInstance();
-            this._reCaptcha = Substitute.For<ReCaptchaV2>(this._settings);
         }
 
         [TearDown]
@@ -35,11 +36,43 @@ namespace Aliencube.ReCaptcha.Wrapper.Tests
 
         [Test]
         [TestCase("THIS_IS_SECRET_KEY", "THIS_IS_RESPONSE_KEY", "127.0.0.1")]
-        public void GivenRequestValues_Should_ReturnRequestBody(string secret, string response, string remoteIp)
+        public void GetRequestBody_GivenRequestValues_Should_ReturnRequestBody(string secretKey, string responseKey, string remoteIp)
         {
-            var request = new ReCaptchaV2Request() { Secret = secret, Response = response, RemoteIp = remoteIp };
+            var request = new ReCaptchaV2Request() { Secret = secretKey, Response = responseKey, RemoteIp = remoteIp };
+
+            this._reCaptcha = Substitute.For<ReCaptchaV2>(this._settings);
+
             var requestBody = this._reCaptcha.GetRequestBody(request);
-            requestBody.Should().Be(String.Format("secret={0}&response={1}&remoteip={2}", secret, response, remoteIp));
+            requestBody.Should().Be(String.Format("secret={0}&response={1}&remoteip={2}", secretKey, responseKey, remoteIp));
+        }
+
+        [Test]
+        [TestCase("THIS_IS_SECRET_KEY", "THIS_IS_RESPONSE_KEY", "127.0.0.1", true)]
+        [TestCase("THIS_IS_SECRET_KEY", "THIS_IS_RESPONSE_KEY", "127.0.0.1", false, "missing-input-secret", "invalid-input-secret")]
+        [TestCase("THIS_IS_SECRET_KEY", "THIS_IS_RESPONSE_KEY", "127.0.0.1", false, "missing-input-secret", "invalid-input-secret", "missing-input-response", "invalid-input-response")]
+        public async void SiteVerifyAsync_GivenResponseBody_Should_ReturnReCaptchaV2Response(string secretKey, string responseKey, string remoteIp, bool success, params string[] errorCodes)
+        {
+            var request = new ReCaptchaV2Request() { Secret = secretKey, Response = responseKey, RemoteIp = remoteIp };
+            var responseBody = String.Format("{{ \"success\": {0}, \"error-codes\": {1} }}",
+                                             success.ToString().ToLower(),
+                                             errorCodes.IsNullOrZeroLength() ? "null" : "[" + String.Join(",", errorCodes.Select(p => "\"" + p + "\"")) + "]");
+            var result = Task.FromResult(responseBody);
+
+            this._reCaptcha = Substitute.ForPartsOf<ReCaptchaV2>(this._settings);
+            this._reCaptcha.When(p => p.GetResponseBodyAsync(Arg.Is(request))).DoNotCallBase();
+            this._reCaptcha.GetResponseBodyAsync(Arg.Is(request)).Returns(result);
+
+            var response = await this._reCaptcha.SiteVerifyAsync(request);
+            response.Success.Should().Be(success);
+            if (errorCodes.IsNullOrZeroLength())
+            {
+                response.ErrorCodes.Should().BeNullOrEmpty();
+            }
+            else
+            {
+                response.ErrorCodes.Should().Contain(errorCodes)
+                                   .And.HaveCount(errorCodes.Length);
+            }
         }
     }
 }

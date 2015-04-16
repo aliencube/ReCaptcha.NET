@@ -24,7 +24,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Tests
         }
 
         [Test]
-        public void GivenConfig_Should_ReturnSettings()
+        public void CreateInstance_GivenConfig_Should_ReturnSettings()
         {
             this._settings = ReCaptchaV2Settings.CreateInstance();
 

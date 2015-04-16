@@ -5,7 +5,7 @@ using System.Linq;
 namespace Aliencube.ReCaptcha.Wrapper
 {
     /// <summary>
-    /// This represents the entity for Dictionary extensions.
+    /// This represents the entity for <c>Dictionary</c> extensions.
     /// </summary>
     public static class DictionaryExtensions
     {

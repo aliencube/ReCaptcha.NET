@@ -89,7 +89,7 @@ namespace Aliencube.ReCaptcha.Wrapper
 
             var requestBody = request.GetType()
                                      .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                                     .ToDictionary(p => p.Name.ToLower(), p => (string)p.GetValue(request, null))
+                                     .ToDictionary(p => p.Name.ToLower(), p => Convert.ToString(p.GetValue(request, null)))
                                      .Flatten();
             return requestBody;
         }

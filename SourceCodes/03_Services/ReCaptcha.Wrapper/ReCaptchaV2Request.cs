@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Aliencube.ReCaptcha.Wrapper
 {
     /// <summary>
@@ -13,6 +15,7 @@ namespace Aliencube.ReCaptcha.Wrapper
         /// <summary>
         /// Gets or sets the response token provided by ReCaptcha.
         /// </summary>
+        [Display(Name = "g-recaptcha-response")]
         public string Response { get; set; }
 
         /// <summary>

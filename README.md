@@ -5,7 +5,13 @@
 
 ## Package Status ##
 
-TBD
+* NuGet Package:
+  * **ReCaptcha.Wrapper**:
+  * **ReCaptcha.Wrapper.MVC**: 
+* AppVeyor Build:
+  * `HEAD`: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net)
+  * `master`: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/master?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/master)
+  * `dev`: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/dev?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/dev)
 
 
 ## Getting Started ##

@@ -11,7 +11,7 @@ IF NOT EXIST %MSBUILDDIR%msbuild.exe goto MissingMSBuildExe
 ::BUILD
 "tools\nuget.exe" restore ReCaptcha.sln
 "%MSBUILDDIR%msbuild.exe" "03_Services\ReCaptcha.Wrapper\ReCaptcha.Wrapper.csproj" /t:ReBuild /p:Configuration=Release;TargetFrameworkVersion=v4.5;DefineConstants="TRACE;NET45";OutPutPath=bin\Release\net45\;DocumentationFile=bin\Release\net45\Aliencube.ReCaptcha.Wrapper.xml
-"%MSBUILDDIR%msbuild.exe" "03_Services\ReCaptcha.Wrapper\ReCaptcha.Wrapper.Mvc.csproj" /t:ReBuild /p:Configuration=Release;TargetFrameworkVersion=v4.5;DefineConstants="TRACE;NET45";OutPutPath=bin\Release\net45\;DocumentationFile=bin\Release\net45\Aliencube.ReCaptcha.Wrapper.Mvc.xml
+"%MSBUILDDIR%msbuild.exe" "03_Services\ReCaptcha.Wrapper.Mvc\ReCaptcha.Wrapper.Mvc.csproj" /t:ReBuild /p:Configuration=Release;TargetFrameworkVersion=v4.5;DefineConstants="TRACE;NET45";OutPutPath=bin\Release\net45\;DocumentationFile=bin\Release\net45\Aliencube.ReCaptcha.Wrapper.Mvc.xml
 
 IF [%1]==[] GOTO MissingApiKey
 

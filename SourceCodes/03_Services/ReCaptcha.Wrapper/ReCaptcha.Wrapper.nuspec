@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>Aliencube.ReCaptcha.NET</id>
+        <version>0.6.0.0</version>
+        <title>ReCaptcha.NET</title>
+        <authors>Aliencube Community</authors>
+        <owners>aliencube</owners>
+        <licenseUrl>https://github.com/aliencube/ReCaptcha.NET/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/aliencube/ReCaptcha.NET</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>ReCaptcha.NET provides a .NET wrapper library for Google's reCaptcha (http://google.com/recaptcha) API.</description>
+        <copyright>Aliencube Community Copyright 2015</copyright>
+        <tags>Aliencube, reCaptcha</tags>
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="6.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\**\Aliencube.ReCaptcha.Wrapper.*" target="lib" />
+    </files>
+</package>

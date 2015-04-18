@@ -27,9 +27,6 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
     public partial class HomeController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public HomeController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected HomeController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]

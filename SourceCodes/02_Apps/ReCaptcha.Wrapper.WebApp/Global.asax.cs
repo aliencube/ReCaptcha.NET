@@ -10,6 +10,8 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp
             AreaRegistration.RegisterAllAreas();
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            DependencyConfig.RegisterDependencies();
         }
     }
 }

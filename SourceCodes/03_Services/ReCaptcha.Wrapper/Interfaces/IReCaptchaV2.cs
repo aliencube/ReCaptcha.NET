@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.Threading.Tasks;
 
 namespace Aliencube.ReCaptcha.Wrapper.Interfaces
@@ -8,6 +9,24 @@ namespace Aliencube.ReCaptcha.Wrapper.Interfaces
     /// </summary>
     public interface IReCaptchaV2 : IDisposable
     {
+        /// <summary>
+        /// Gets the <c>ReCaptchaV2Request</c> instance.
+        /// </summary>
+        /// <param name="settings"><c>ReCaptchaV2Settings</c> instance.</param>
+        /// <param name="form">Form values collection.</param>
+        /// <param name="serverVariables">Server variables collection.</param>
+        /// <returns>Returns the <c>ReCaptchaV2Request</c> instance.</returns>
+        ReCaptchaV2Request GetReCaptchaV2Request(IReCaptchaV2Settings settings, NameValueCollection form, NameValueCollection serverVariables);
+
+        /// <summary>
+        /// Verifies the request asynchronously.
+        /// </summary>
+        /// <param name="settings"><c>ReCaptchaV2Settings</c> instance.</param>
+        /// <param name="form">Form values collection.</param>
+        /// <param name="serverVariables">Server variables collection.</param>
+        /// <returns>Returns <c>ReCaptchaV2Response</c> object.</returns>
+        Task<ReCaptchaV2Response> SiteVerifyAsync(IReCaptchaV2Settings settings, NameValueCollection form, NameValueCollection serverVariables);
+
         /// <summary>
         /// Verifies the request asynchronously.
         /// </summary>

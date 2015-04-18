@@ -41,11 +41,9 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         [HttpPost]
         public virtual async Task<ActionResult> Index(HomeIndexViewModel form)
         {
-            var vm = form;
-            var request = vm as ReCaptchaV2Request;
-            request.Secret = this._settings.SecretKey;
+            var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
 
-            var result = await this._reCaptcha.SiteVerifyAsync(request);
+            var vm = form;
             vm.Success = result.Success;
             vm.ErrorCodes = result.ErrorCodes;
             return View(vm);

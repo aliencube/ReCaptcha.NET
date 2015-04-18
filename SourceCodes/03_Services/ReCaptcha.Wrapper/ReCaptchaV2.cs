@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
@@ -31,6 +32,38 @@ namespace Aliencube.ReCaptcha.Wrapper
             }
 
             this._settings = settings;
+        }
+
+        /// <summary>
+        /// Gets the <c>ReCaptchaV2Request</c> instance.
+        /// </summary>
+        /// <param name="settings"><c>ReCaptchaV2Settings</c> instance.</param>
+        /// <param name="form">Form values collection.</param>
+        /// <param name="serverVariables">Server variables collection.</param>
+        /// <returns>Returns the <c>ReCaptchaV2Request</c> instance.</returns>
+        public ReCaptchaV2Request GetReCaptchaV2Request(IReCaptchaV2Settings settings, NameValueCollection form, NameValueCollection serverVariables)
+        {
+            var request = new ReCaptchaV2Request()
+                          {
+                              Secret = settings.SecretKey,
+                              Response = form["g-recaptcha-response"],
+                              RemoteIp = serverVariables["REMOTE_ADDR"]
+                          };
+            return request;
+        }
+
+        /// <summary>
+        /// Verifies the request asynchronously.
+        /// </summary>
+        /// <param name="settings"><c>ReCaptchaV2Settings</c> instance.</param>
+        /// <param name="form">Form values collection.</param>
+        /// <param name="serverVariables">Server variables collection.</param>
+        /// <returns>Returns <c>ReCaptchaV2Response</c> object.</returns>
+        public async Task<ReCaptchaV2Response> SiteVerifyAsync(IReCaptchaV2Settings settings, NameValueCollection form, NameValueCollection serverVariables)
+        {
+            var request = this.GetReCaptchaV2Request(settings, form, serverVariables);
+            var response = await this.SiteVerifyAsync(request);
+            return response;
         }
 
         /// <summary>

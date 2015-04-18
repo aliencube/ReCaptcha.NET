@@ -1,27 +1,60 @@
 # ReCaptcha.NET #
 
-**ReCaptcha.NET** provides a .NET wrapper library for [Google reCaptcha](https://www.google.com/recaptcha).
+**ReCaptcha.NET** provides a .NET wrapper library for Google's [reCaptcha](https://www.google.com/recaptcha).
 
 
 ## Package Status ##
 
-* NuGet Package:
-  * **ReCaptcha.Wrapper**:
-  * **ReCaptcha.Wrapper.MVC**: 
-* AppVeyor Build:
-  * `HEAD`: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net)
-  * `master`: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/master?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/master)
-  * `dev`: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/dev?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/dev)
+* [NuGet](https://nuget.org) Package Status:
+  * **Aliencube.ReCaptcha.NET**: [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/)
+  * **Aliencube.ReCaptcha.NET.MVC**: [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/)
+* [AppVeyor](https://appveyor.com) Build Status: [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net)
 
 
 ## Getting Started ##
 
-TBD
+In order to use **ReCaptcha.NET** in your apps, you should get the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package as a minimum. The following section shows how this is used in ASP.NET MVC apps.
 
 
 ### ASP.NET MVC ###
 
-TBD
+In order to use **ReCaptcha.NET** in your [ASP.NET MVC](https://asp.net/mvc) apps, on top of the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package, you should get the [**Aliencube.ReCaptcha.NET.MVC**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) package. Then add the following into your Razor view script:
+
+```csharp
+@using (Html.BeginForm(MVC.Home.ActionNames.Index, MVC.Home.Name, FormMethod.Post))
+{
+  ...
+
+  @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "[class names]" }, { "data-sitekey", Model.SiteKey } })
+
+  ...
+}
+
+@section Scripts
+{
+  @Html.ReCaptchaApiJs(new Dictionary<string, object>() { { "src", Model.ApiUrl } })
+}
+```
+
+* `@Html.Recaptcha()` renders the reCaptcha control.
+* `@Html.ReCaptchaApiJs()` renders JavaScript for the reCaptcha control.
+
+In order to handle this reCaptcha control in your controllers, take a look at the following:
+
+```csharp
+[HttpPost]
+public virtual async Task<ActionResult> Index(HomeIndexViewModel form)
+{
+  var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
+
+  var vm = form;
+  vm.Success = result.Success;
+  vm.ErrorCodes = result.ErrorCodes;
+  return View(vm);
+}
+```
+
+* `ReCaptchaV2.SiteVerifyAsync()` takes parameters of `ReCaptchaV2Settings`, `Form` and `ServerVariables` and returns the result.
 
 
 ## Contribution ##

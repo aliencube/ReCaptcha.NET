@@ -40,5 +40,5 @@
 
 @section Scripts
 {
-    @Html.ReCaptchaApiJs(new Dictionary<string, object>() { { "src", Model.ApiUrl } })
+    @Html.ReCaptchaApiJs(Model.ApiUrl, JsRenderingOptions.Async | JsRenderingOptions.Defer)
 }

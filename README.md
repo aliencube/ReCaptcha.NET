@@ -18,7 +18,7 @@ In order to use **ReCaptcha.NET** in your apps, you should get the [**Aliencube.
 
 ### ASP.NET MVC ###
 
-In order to use **ReCaptcha.NET** in your [ASP.NET MVC](https://asp.net/mvc) apps, on top of the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package, you should get the [**Aliencube.ReCaptcha.NET.MVC**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) package. Then add the following into your Razor view script:
+In order to use **ReCaptcha.NET** in your [ASP.NET MVC](https://asp.net/mvc) apps, you should get the [**Aliencube.ReCaptcha.NET.MVC**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) package, on top of the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package. Then add the following into your Razor view script:
 
 ```csharp
 @using (Html.BeginForm(MVC.Home.ActionNames.Index, MVC.Home.Name, FormMethod.Post))
@@ -116,7 +116,7 @@ If you want to simply use the `appSettings` section, you can do the following in
 > * Both SiteKey and SecretKey **MUST** be changed to yours before running this code; otherwise you'll get an error. They can be obtained from [https://google.com/recaptcha](https://google.com/recaptcha), once you login.
 
 
-## TO DO ##
+## Acknowledgements ##
 
 * **ReCaptcha.NET** currently support Version 2 only. Version 1 will be implemented later.
 * [JavaScript configuration](https://developers.google.com/recaptcha/docs/display) will be implemented later.

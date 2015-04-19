@@ -17,11 +17,33 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns the JavaScript control to render the reCaptcha HTML control.</returns>
         public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src)
         {
+            if (String.IsNullOrWhiteSpace(src))
+            {
+                throw new ArgumentNullException("src");
+            }
+
+            return htmlHelper.ReCaptchaApiJs(src, JsRenderingOptions.None);
+        }
+
+        /// <summary>
+        /// Renders the JavaScript control to render the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="src">JavaScript reference source.</param>
+        /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
+        /// <returns>Returns the JavaScript control to render the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src, JsRenderingOptions options)
+        {
+            if (String.IsNullOrWhiteSpace(src))
+            {
+                throw new ArgumentNullException("src");
+            }
+
             var htmlAttributes = new Dictionary<string, object>()
                                      {
                                          { "src", src },
                                      };
-            return htmlHelper.ReCaptchaApiJs(htmlAttributes);
+            return htmlHelper.ReCaptchaApiJs(htmlAttributes, options);
         }
 
         /// <summary>
@@ -32,6 +54,40 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns the reCaptcha HTML control.</returns>
         public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
         {
+            if (htmlAttributes == null)
+            {
+                throw new ArgumentNullException("htmlAttributes");
+            }
+
+            return htmlHelper.ReCaptchaApiJs(htmlAttributes, JsRenderingOptions.None);
+        }
+
+        /// <summary>
+        /// Renders the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="htmlAttributes">List of HTML attributes.</param>
+        /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
+        /// <returns>Returns the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, JsRenderingOptions options)
+        {
+            if (htmlAttributes == null)
+            {
+                throw new ArgumentNullException("htmlAttributes");
+            }
+
+            if (options.HasFlag(JsRenderingOptions.Async))
+            {
+                var async = Convert.ToString(JsRenderingOptions.Async).ToLower();
+                htmlAttributes.Add(async, async);
+            }
+
+            if (options.HasFlag(JsRenderingOptions.Defer))
+            {
+                var defer = Convert.ToString(JsRenderingOptions.Defer).ToLower();
+                htmlAttributes.Add(defer, defer);
+            }
+
             var builder = new TagBuilder("script");
             builder.MergeAttributes(htmlAttributes);
 
@@ -47,6 +103,16 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns the reCaptcha HTML control.</returns>
         public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IEnumerable<string> classNames, string siteKey)
         {
+            if (classNames == null)
+            {
+                throw new ArgumentNullException("classNames");
+            }
+
+            if (String.IsNullOrWhiteSpace(siteKey))
+            {
+                throw new ArgumentNullException("siteKey");
+            }
+
             var className = String.Join(" ", classNames);
             return htmlHelper.ReCaptcha(className, siteKey);
         }
@@ -60,6 +126,16 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns the reCaptcha HTML control.</returns>
         public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, string className, string siteKey)
         {
+            if (String.IsNullOrWhiteSpace(className))
+            {
+                throw new ArgumentNullException("siteKey");
+            }
+
+            if (String.IsNullOrWhiteSpace(siteKey))
+            {
+                throw new ArgumentNullException("siteKey");
+            }
+
             var htmlAttributes = new Dictionary<string, object>()
                                      {
                                          { "class", className },
@@ -76,6 +152,11 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns the reCaptcha HTML control.</returns>
         public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
         {
+            if (htmlAttributes == null)
+            {
+                throw new ArgumentNullException("htmlAttributes");
+            }
+
             var builder = new TagBuilder("div");
             builder.MergeAttributes(htmlAttributes);
 

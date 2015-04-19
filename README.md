@@ -38,6 +38,7 @@ In order to use **ReCaptcha.NET** in your [ASP.NET MVC](https://asp.net/mvc) app
 
 * `@Html.Recaptcha()` renders the reCaptcha control.
 * `@Html.ReCaptchaApiJs()` renders JavaScript for the reCaptcha control.
+* More details can be found on [Index.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Index.cshtml) as an example.
 
 In order to handle this reCaptcha control in your controllers, take a look at the following:
 
@@ -55,6 +56,70 @@ public virtual async Task<ActionResult> Index(HomeIndexViewModel form)
 ```
 
 * `ReCaptchaV2.SiteVerifyAsync()` takes parameters of `ReCaptchaV2Settings`, `Form` and `ServerVariables` and returns the result.
+* More details can be found on [HomeController.cs](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Controllers/HomeController.cs) as an example.
+
+
+## Settings ##
+
+As you can see the above example codes, configuration settings needs to be instantiated first by calling:
+
+```csharp
+var settings = ConverterSettings.CreateInstance();
+```
+
+Alternatively, the `settings` instance can be injected by any IoC container. The following code is, for example, using [Autofac](http://autofac.org)
+
+```csharp
+var builder = new ContainerBuilder();
+
+...
+
+builder.Register(p => ReCaptchaV2Settings.CreateInstance()).As<IReCaptchaV2Settings>();
+builder.RegisterType<ReCaptchaV2>().As<IReCaptchaV2>();
+
+...
+
+var container = builder.Build();
+```
+
+This `settings` instance comes from either `reCaptchaV2Settings` section or `appSettings` section on `App.config` or `Web.config`. It firstly look for the `reCaptchaV2Settings` section and, if no `reCaptchaV2Settings` section is found, then look for the `appSettings` section.
+
+```xml
+<configuration>
+  <configSections>
+    <section name="reCaptchaV2Settings" type="Aliencube.ReCaptcha.Wrapper.ReCaptchaV2Settings, Aliencube.ReCaptcha.Wrapper" requirePermission="false" />
+  </configSections>
+
+  <reCaptchaV2Settings
+    requestUrl="https://www.google.com/recaptcha/api/siteverify"
+    apiUrl="https://www.google.com/recaptcha/api.js"
+    siteKey="[YOUR_SITE_KEY]"
+    secretKey="[YOUR_SECRET_KEY]" />
+</configuration>
+```
+
+If you want to simply use the `appSettings` section, you can do the following instead:
+
+```xml
+<configuration>
+  <appSettings>
+    <add key="RequestUrl" value="https://www.google.com/recaptcha/api/siteverify" />
+    <add key="ApiUrl" value="https://www.google.com/recaptcha/api.js" />
+    <add key="SiteKey" value="[YOUR_SITE_KEY]" />
+    <add key="SecretKey" value="[YOUR_SECRET_KEY]" />
+  </appSettings>
+</configuration>
+```
+
+> **NOTE**: Make sure that:
+> 
+> * Both SiteKey and SecretKey **MUST** be changed to yours before running this code; otherwise you'll get an error. They can be obtained from [https://google.com/recaptcha](https://google.com/recaptcha), once you login.
+
+
+## TO DO ##
+
+* **ReCaptcha.NET** currently support Version 2 only. Version 1 will be implemented later.
+* [JavaScript configuration](https://developers.google.com/recaptcha/docs/display) will be implemented later.
 
 
 ## Contribution ##

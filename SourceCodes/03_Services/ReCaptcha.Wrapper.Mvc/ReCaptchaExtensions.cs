@@ -84,7 +84,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
 
             if (parameters != null)
             {
-                builder.MergeAttributes(parameters.ToDictionary<string, object>());
+                builder.MergeAttributes(parameters.ToDictionary<RenderParameters, string, object>());
             }
 
             string result;

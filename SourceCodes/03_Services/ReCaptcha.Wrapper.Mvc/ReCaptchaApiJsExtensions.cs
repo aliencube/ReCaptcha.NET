@@ -141,7 +141,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             src += src.Contains("?")
                        ? (src.EndsWith("?") ? null : "&")
                        : "?";
-            src += parameters.ToDictionary<string, object>().Flatten();
+            src += parameters.ToDictionary<ResourceParameters, string, object>().Flatten();
             builder.Attributes["src"] = src;
 
             return builder.ToMvcHtmlString(TagRenderMode.Normal);

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
 using System.Web.Mvc;
-using Aliencube.ReCaptcha.Wrapper.Extensions;
 using Aliencube.ReCaptcha.Wrapper.Mvc.Extensions;
 using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters;
 
@@ -68,7 +63,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
 
             var serialised = parameters == null
                                  ? null
-                                 : JsonConvert.SerializeObject(parameters.ToDictionary<string, object>())
+                                 : JsonConvert.SerializeObject(parameters.ToDictionary<RenderParameters, string, object>())
                                               .Replace("\"data-", "\"");
 
             var sb = new StringBuilder();

@@ -7,7 +7,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Extensions
     /// <summary>
     /// This represents the entity for <c>Dictionary</c> extensions.
     /// </summary>
-    public static class DictionaryExtensions
+    public static class IEnumerableExtensions
     {
         /// <summary>
         /// Flattens key/value pairs.
@@ -16,7 +16,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Extensions
         /// <typeparam name="TValue">Value type parameter.</typeparam>
         /// <param name="values"><c>Dictionary</c> object.</param>
         /// <returns>Returns the flattened key/value pairs.</returns>
-        public static string Flatten<TKey, TValue>(this Dictionary<TKey, TValue> values)
+        public static string Flatten<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> values)
         {
             var result = String.Join("&", values.Select(p => String.Format("{0}={1}", p.Key, p.Value)));
             return result;

@@ -77,13 +77,16 @@
     </Compile>
     <Compile Include="DataType.cs" />
     <Compile Include="JsRenderingOptions.cs" />
+    <Compile Include="LanguageCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReCaptchaApiJsParameters.cs" />
     <Compile Include="ReCaptchaJsExtensions.cs" />
     <Compile Include="ReCaptchaExtensions.cs" />
     <Compile Include="ReCaptchaParametersExtensions.cs" />
     <Compile Include="ReCaptchaParametersSerialiseOptions.cs" />
     <Compile Include="ReCaptchaParameters.cs" />
     <Compile Include="ThemeType.cs" />
+    <Compile Include="WidgetRenderType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

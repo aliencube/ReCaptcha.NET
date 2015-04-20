@@ -93,5 +93,5 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
 
             return builder.ToMvcHtmlString(TagRenderMode.Normal);
         }
-   }
+    }
 }

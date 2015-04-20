@@ -139,9 +139,12 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             var htmlAttributes = new Dictionary<string, object>()
                                      {
                                          { "class", className },
-                                         { "data-sitekey", siteKey },
                                      };
-            return htmlHelper.ReCaptcha(htmlAttributes);
+            var parameters = new ReCaptchaParameters()
+                                 {
+                                     SiteKey = siteKey
+                                 };
+            return htmlHelper.ReCaptcha(htmlAttributes, parameters);
         }
 
         /// <summary>
@@ -149,8 +152,9 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// </summary>
         /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
         /// <param name="htmlAttributes">List of HTML attributes.</param>
+        /// <param name="parameters"><c>ReCaptchaParameters</c> object.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, ReCaptchaParameters parameters = null)
         {
             if (htmlAttributes == null)
             {
@@ -159,6 +163,11 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
 
             var builder = new TagBuilder("div");
             builder.MergeAttributes(htmlAttributes);
+
+            if (parameters != null)
+            {
+                builder.MergeAttributes(parameters.ToDictionary<string, object>());
+            }
 
             string result;
             if (builder.Attributes.ContainsKey("class") && builder.Attributes.TryGetValue("class", out result) && !result.Contains("g-recaptcha"))

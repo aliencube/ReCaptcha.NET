@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using Aliencube.ReCaptcha.Wrapper.Extensions;
@@ -142,10 +141,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             src += src.Contains("?")
                        ? (src.EndsWith("?") ? null : "&")
                        : "?";
-            src += parameters.GetType()
-                             .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                             .ToDictionary(p => p.Name.ToLower(), p => GetPropertyValue(p, parameters))
-                             .Flatten();
+            src += parameters.ToDictionary<string, object>().Flatten();
             builder.Attributes["src"] = src;
 
             return builder.ToMvcHtmlString(TagRenderMode.Normal);

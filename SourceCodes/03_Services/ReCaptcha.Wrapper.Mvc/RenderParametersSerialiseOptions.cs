@@ -5,7 +5,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
     /// <summary>
     /// This represents the parameter entity for reCaptcha rendering.
     /// </summary>
-    public partial class ReCaptchaParameters
+    public partial class RenderParameters
     {
         /// <summary>
         /// Checks whether the <c>Theme</c> property should be serialised or not.
@@ -13,7 +13,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns <c>True</c>, if the <c>Theme</c> property is not null; otherwise returns <c>False</c>.</returns>
         public bool ShouldSerializeTheme()
         {
-            return !String.IsNullOrWhiteSpace(this.Theme);
+            return this.Theme != RenderThemeType.Unknown;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <returns>Returns <c>True</c>, if the <c>DataType</c> property is not null; otherwise returns <c>False</c>.</returns>
         public bool ShouldSerializeDataType()
         {
-            return !String.IsNullOrWhiteSpace(this.DataType);
+            return this.DataType != RenderDataType.Unknown;
         }
 
         /// <summary>

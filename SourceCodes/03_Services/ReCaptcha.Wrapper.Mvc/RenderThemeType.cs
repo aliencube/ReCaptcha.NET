@@ -1,18 +1,27 @@
+using System.Runtime.Serialization;
+
 namespace Aliencube.ReCaptcha.Wrapper.Mvc
 {
     /// <summary>
     /// This specifies the theme type for the reCaptcha control.
     /// </summary>
-    public enum ThemeType
+    public enum RenderThemeType
     {
+        /// <summary>
+        /// Identifies no theme is defined.
+        /// </summary>
+        Unknown = 0,
+
         /// <summary>
         /// Identifies the light theme.
         /// </summary>
-        Light = 0,
+        [EnumMember(Value = "light")]
+        Light = 1,
 
         /// <summary>
         /// Identifies the dark theme.
         /// </summary>
-        Dark = 1,
+        [EnumMember(Value = "dark")]
+        Dark = 2,
     }
 }

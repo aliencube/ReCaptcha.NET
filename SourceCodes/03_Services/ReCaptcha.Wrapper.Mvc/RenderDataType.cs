@@ -1,18 +1,27 @@
+using System.Runtime.Serialization;
+
 namespace Aliencube.ReCaptcha.Wrapper.Mvc
 {
     /// <summary>
     /// This specifies the data type for reCaptcha control.
     /// </summary>
-    public enum DataType
+    public enum RenderDataType
     {
+        /// <summary>
+        /// Identifies no data type is defined.
+        /// </summary>
+        Unknown = 0,
+
         /// <summary>
         /// Identifies the image data type.
         /// </summary>
-        Image = 0,
+        [EnumMember(Value = "image")]
+        Image = 1,
 
         /// <summary>
         /// Identifies the audio data type.
         /// </summary>
-        Audio = 1,
+        [EnumMember(Value = "audio")]
+        Audio = 2,
     }
 }

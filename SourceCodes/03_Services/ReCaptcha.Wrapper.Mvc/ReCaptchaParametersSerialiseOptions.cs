@@ -1,0 +1,55 @@
+using System;
+
+namespace Aliencube.ReCaptcha.Wrapper.Mvc
+{
+    /// <summary>
+    /// This represents the parameter entity for reCaptcha rendering.
+    /// </summary>
+    public partial class ReCaptchaParameters
+    {
+        /// <summary>
+        /// Checks whether the <c>Theme</c> property should be serialised or not.
+        /// </summary>
+        /// <returns>Returns <c>True</c>, if the <c>Theme</c> property is not null; otherwise returns <c>False</c>.</returns>
+        public bool ShouldSerializeTheme()
+        {
+            return !String.IsNullOrWhiteSpace(this.Theme);
+        }
+
+        /// <summary>
+        /// Checks whether the <c>DataType</c> property should be serialised or not.
+        /// </summary>
+        /// <returns>Returns <c>True</c>, if the <c>DataType</c> property is not null; otherwise returns <c>False</c>.</returns>
+        public bool ShouldSerializeDataType()
+        {
+            return !String.IsNullOrWhiteSpace(this.DataType);
+        }
+
+        /// <summary>
+        /// Checks whether the <c>TabIndex</c> property should be serialised or not.
+        /// </summary>
+        /// <returns>Returns <c>True</c>, if the <c>TabIndex</c> property is not zero (0); otherwise returns <c>False</c>.</returns>
+        public bool ShouldSerializeTabIndex()
+        {
+            return this.TabIndex != 0;
+        }
+
+        /// <summary>
+        /// Checks whether the <c>Callback</c> property should be serialised or not.
+        /// </summary>
+        /// <returns>Returns <c>True</c>, if the <c>Callback</c> property is not null; otherwise returns <c>False</c>.</returns>
+        public bool ShouldSerializeCallback()
+        {
+            return !String.IsNullOrWhiteSpace(this.Callback);
+        }
+
+        /// <summary>
+        /// Checks whether the <c>ExpiredCallback</c> property should be serialised or not.
+        /// </summary>
+        /// <returns>Returns <c>True</c>, if the <c>ExpiredCallback</c> property is not null; otherwise returns <c>False</c>.</returns>
+        public bool ShouldSerializeExpiredCallback()
+        {
+            return !String.IsNullOrWhiteSpace(this.ExpiredCallback);
+        }
+    }
+}

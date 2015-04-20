@@ -6,7 +6,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
     /// This specifies JavaScript rendering options.
     /// </summary>
     [Flags]
-    public enum JsRenderingOptions
+    public enum ApiJsRenderingOptions
     {
         /// <summary>
         /// Identifies no rendering option is defined.

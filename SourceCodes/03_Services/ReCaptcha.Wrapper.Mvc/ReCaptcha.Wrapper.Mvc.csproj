@@ -76,8 +76,8 @@
     <Compile Include="..\..\..\Documents\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="DataType.cs" />
-    <Compile Include="JsRenderingOptions.cs" />
+    <Compile Include="RenderDataType.cs" />
+    <Compile Include="ApiJsRenderingOptions.cs" />
     <Compile Include="ResourceParametersSerialiseOptions.cs" />
     <Compile Include="WidgetLanguageCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,7 +87,7 @@
     <Compile Include="RenderParametersExtensions.cs" />
     <Compile Include="RenderParametersSerialiseOptions.cs" />
     <Compile Include="RenderParameters.cs" />
-    <Compile Include="ThemeType.cs" />
+    <Compile Include="RenderThemeType.cs" />
     <Compile Include="WidgetRenderType.cs" />
   </ItemGroup>
   <ItemGroup>

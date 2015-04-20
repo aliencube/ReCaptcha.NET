@@ -18,13 +18,13 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// Gets or sets the theme.
         /// </summary>
         [JsonProperty(PropertyName = "data-theme")]
-        public string Theme { get; set; }
+        public RenderThemeType Theme { get; set; }
 
         /// <summary>
         /// Gets or sets the data type.
         /// </summary>
         [JsonProperty(PropertyName = "data-type")]
-        public string DataType { get; set; }
+        public RenderDataType DataType { get; set; }
 
         /// <summary>
         /// Gets or sets the tab index.

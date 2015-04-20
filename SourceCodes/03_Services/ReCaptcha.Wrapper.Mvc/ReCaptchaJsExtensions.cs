@@ -25,7 +25,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
                 throw new ArgumentNullException("src");
             }
 
-            return htmlHelper.ReCaptchaApiJs(src, JsRenderingOptions.None);
+            return htmlHelper.ReCaptchaApiJs(src, ApiJsRenderingOptions.None);
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="src">JavaScript reference source.</param>
         /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
         /// <returns>Returns the JavaScript control to render the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src, JsRenderingOptions options)
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src, ApiJsRenderingOptions options)
         {
             if (String.IsNullOrWhiteSpace(src))
             {
@@ -53,7 +53,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
         /// <param name="parameters"><c>ResourceParameters</c> instance.</param>
         /// <returns>Returns the JavaScript control to render the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src, JsRenderingOptions options, ResourceParameters parameters)
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, string src, ApiJsRenderingOptions options, ResourceParameters parameters)
         {
             if (String.IsNullOrWhiteSpace(src))
             {
@@ -80,7 +80,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
                 throw new ArgumentNullException("htmlAttributes");
             }
 
-            return htmlHelper.ReCaptchaApiJs(htmlAttributes, JsRenderingOptions.None);
+            return htmlHelper.ReCaptchaApiJs(htmlAttributes, ApiJsRenderingOptions.None);
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="htmlAttributes">List of HTML attributes.</param>
         /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, JsRenderingOptions options)
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, ApiJsRenderingOptions options)
         {
             if (htmlAttributes == null)
             {
@@ -108,22 +108,22 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
         /// <param name="parameters"><c>ResourceParameters</c> instance.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, JsRenderingOptions options, ResourceParameters parameters)
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, ApiJsRenderingOptions options, ResourceParameters parameters)
         {
             if (htmlAttributes == null)
             {
                 throw new ArgumentNullException("htmlAttributes");
             }
 
-            if (options.HasFlag(JsRenderingOptions.Async))
+            if (options.HasFlag(ApiJsRenderingOptions.Async))
             {
-                var async = Convert.ToString(JsRenderingOptions.Async).ToLower();
+                var async = Convert.ToString(ApiJsRenderingOptions.Async).ToLower();
                 htmlAttributes.Add(async, async);
             }
 
-            if (options.HasFlag(JsRenderingOptions.Defer))
+            if (options.HasFlag(ApiJsRenderingOptions.Defer))
             {
-                var defer = Convert.ToString(JsRenderingOptions.Defer).ToLower();
+                var defer = Convert.ToString(ApiJsRenderingOptions.Defer).ToLower();
                 htmlAttributes.Add(defer, defer);
             }
 

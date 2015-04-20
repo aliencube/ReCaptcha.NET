@@ -3,6 +3,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
     /// <summary>
     /// This specifies the reCaptcha control to render explicitly.
     /// </summary>
+    /// <remarks>More details: https://developers.google.com/recaptcha/docs/display#js_param</remarks>
     public enum WidgetRenderType
     {
         /// <summary>

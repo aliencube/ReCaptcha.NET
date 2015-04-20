@@ -5,6 +5,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
     /// <summary>
     /// This specifies the data type for reCaptcha control.
     /// </summary>
+    /// <remarks>More details: https://developers.google.com/recaptcha/docs/display#render_param</remarks>
     public enum RenderDataType
     {
         /// <summary>

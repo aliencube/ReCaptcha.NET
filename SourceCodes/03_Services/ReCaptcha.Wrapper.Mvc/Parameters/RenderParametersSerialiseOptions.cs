@@ -5,6 +5,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
     /// <summary>
     /// This represents the parameter entity for reCaptcha rendering.
     /// </summary>
+    /// <remarks>More details: https://developers.google.com/recaptcha/docs/display#render_param</remarks>
     public partial class RenderParameters
     {
         /// <summary>

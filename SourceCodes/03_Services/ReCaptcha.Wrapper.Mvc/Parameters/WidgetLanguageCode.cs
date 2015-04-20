@@ -5,6 +5,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
     /// <summary>
     /// This specifies the language code for reCaptcha control rendering.
     /// </summary>
+    /// <remarks>More details: https://developers.google.com/recaptcha/docs/display#js_param</remarks>
     public enum WidgetLanguageCode
     {
         /// <summary>

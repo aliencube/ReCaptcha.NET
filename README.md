@@ -5,15 +5,16 @@
 
 ## NuGet Package Status ##
 
-| * **Aliencube.ReCaptcha.NET** | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) |
-| **Aliencube.ReCaptcha.NET.MVC** | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) |
+| * **Aliencube.ReCaptcha.NET** | **Aliencube.ReCaptcha.NET.MVC** |
+|:-----------------------------:|:-------------------------------:|
+| [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) |
 
 
 ## Build Status ##
 
-| `master` | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/master?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/master) |
-| `dev` | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/dev?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/dev) |
-| `release` | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/release?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/release) |
+| `master` | `dev` | `release` |
+|:--------:|:-----:|:---------:|
+| [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/master?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/dev?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/dev) | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/release?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/release) |
 
 
 ## Getting Started ##

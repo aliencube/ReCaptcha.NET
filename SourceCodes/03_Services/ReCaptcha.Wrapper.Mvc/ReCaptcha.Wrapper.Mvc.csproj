@@ -76,6 +76,7 @@
     <Compile Include="..\..\..\Documents\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Extensions\ResourceParametersExtensions.cs" />
     <Compile Include="Parameters\RenderDataType.cs" />
     <Compile Include="Parameters\ApiJsRenderingOptions.cs" />
     <Compile Include="Parameters\ResourceParametersSerialiseOptions.cs" />

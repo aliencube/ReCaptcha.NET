@@ -10,7 +10,7 @@ using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters;
 namespace Aliencube.ReCaptcha.Wrapper.Mvc
 {
     /// <summary>
-    /// This represents the entity for <c>ReCaptcha</c> extensions.
+    /// This represents the entity for <c>ReCaptcha</c> api.js extensions.
     /// </summary>
     /// <remarks>More details: https://developers.google.com/recaptcha/docs/display</remarks>
     public static class ReCaptchaApiJsExtensions

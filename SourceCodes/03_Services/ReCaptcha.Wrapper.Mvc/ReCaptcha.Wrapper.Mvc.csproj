@@ -40,6 +40,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -77,20 +78,27 @@
     </Compile>
     <Compile Include="DataType.cs" />
     <Compile Include="JsRenderingOptions.cs" />
-    <Compile Include="LanguageCode.cs" />
+    <Compile Include="ResourceParametersSerialiseOptions.cs" />
+    <Compile Include="WidgetLanguageCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReCaptchaApiJsParameters.cs" />
+    <Compile Include="ResourceParameters.cs" />
     <Compile Include="ReCaptchaJsExtensions.cs" />
     <Compile Include="ReCaptchaExtensions.cs" />
-    <Compile Include="ReCaptchaParametersExtensions.cs" />
-    <Compile Include="ReCaptchaParametersSerialiseOptions.cs" />
-    <Compile Include="ReCaptchaParameters.cs" />
+    <Compile Include="RenderParametersExtensions.cs" />
+    <Compile Include="RenderParametersSerialiseOptions.cs" />
+    <Compile Include="RenderParameters.cs" />
     <Compile Include="ThemeType.cs" />
     <Compile Include="WidgetRenderType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="ReCaptcha.Wrapper.Mvc.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReCaptcha.Wrapper\ReCaptcha.Wrapper.csproj">
+      <Project>{18b04a68-6c05-48e3-b603-7371a47a425d}</Project>
+      <Name>ReCaptcha.Wrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

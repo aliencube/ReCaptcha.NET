@@ -55,7 +55,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
                                      {
                                          { "class", className },
                                      };
-            var parameters = new ReCaptchaParameters()
+            var parameters = new RenderParameters()
                                  {
                                      SiteKey = siteKey
                                  };
@@ -69,7 +69,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="htmlAttributes">List of HTML attributes.</param>
         /// <param name="parameters"><c>ReCaptchaParameters</c> object.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, ReCaptchaParameters parameters = null)
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, RenderParameters parameters = null)
         {
             if (htmlAttributes == null)
             {
@@ -85,7 +85,13 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             }
 
             string result;
-            if (builder.Attributes.ContainsKey("class") && builder.Attributes.TryGetValue("class", out result) && !result.Contains("g-recaptcha"))
+            if (!builder.Attributes.TryGetValue("class", out result))
+            {
+                result = "g-recaptcha";
+                builder.AddCssClass(result);
+            }
+
+            if (!result.Contains("g-recaptcha"))
             {
                 builder.AddCssClass("g-recaptcha");
             }

@@ -5,7 +5,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
     /// <summary>
     /// This represents the parameter entity for reCaptcha rendering.
     /// </summary>
-    public partial class ReCaptchaParameters
+    public partial class RenderParameters
     {
         /// <summary>
         /// Checks whether the <c>Theme</c> property should be serialised or not.

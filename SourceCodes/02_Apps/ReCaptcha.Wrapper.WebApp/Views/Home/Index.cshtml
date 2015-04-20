@@ -12,7 +12,7 @@
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new Dictionary<string, object>() {{"class", "form-control"}})
     </div>
-    @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new ReCaptchaParameters() { SiteKey = Model.SiteKey })
+    @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey })
     <input class="btn btn-default" type="submit" name="Submit" />
 }
 

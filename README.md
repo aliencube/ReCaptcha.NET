@@ -5,7 +5,7 @@
 
 ## NuGet Package Status ##
 
-| * **Aliencube.ReCaptcha.NET** | **Aliencube.ReCaptcha.NET.MVC** |
+| **Aliencube.ReCaptcha.NET** | **Aliencube.ReCaptcha.NET.MVC** |
 |:-----------------------------:|:-------------------------------:|
 | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) |
 

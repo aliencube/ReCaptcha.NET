@@ -1,4 +1,4 @@
-namespace Aliencube.ReCaptcha.Wrapper.Mvc
+namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
     /// <summary>
     /// This specifies the reCaptcha control to render explicitly.

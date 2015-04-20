@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Aliencube.ReCaptcha.Wrapper.Mvc
+namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
     /// <summary>
     /// This represents the parameter entity for reCaptcha rendering.

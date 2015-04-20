@@ -1,4 +1,4 @@
-namespace Aliencube.ReCaptcha.Wrapper.Mvc
+namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
     /// <summary>
     /// This represents the parameters entity to render api.js.

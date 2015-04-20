@@ -4,13 +4,15 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 using Aliencube.ReCaptcha.Wrapper.Extensions;
+using Aliencube.ReCaptcha.Wrapper.Mvc.Extensions;
+using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters;
 
 namespace Aliencube.ReCaptcha.Wrapper.Mvc
 {
     /// <summary>
     /// This represents the entity for <c>ReCaptcha</c> extensions.
     /// </summary>
-    public static partial class ReCaptchaExtensions
+    public static class ReCaptchaApiJsExtensions
     {
         /// <summary>
         /// Renders the JavaScript control to render the reCaptcha HTML control.

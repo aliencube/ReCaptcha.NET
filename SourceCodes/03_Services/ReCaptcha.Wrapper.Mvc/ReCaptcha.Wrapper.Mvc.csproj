@@ -76,19 +76,20 @@
     <Compile Include="..\..\..\Documents\Properties\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="RenderDataType.cs" />
-    <Compile Include="ApiJsRenderingOptions.cs" />
-    <Compile Include="ResourceParametersSerialiseOptions.cs" />
-    <Compile Include="WidgetLanguageCode.cs" />
+    <Compile Include="Parameters\RenderDataType.cs" />
+    <Compile Include="Parameters\ApiJsRenderingOptions.cs" />
+    <Compile Include="Parameters\ResourceParametersSerialiseOptions.cs" />
+    <Compile Include="Parameters\WidgetLanguageCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceParameters.cs" />
-    <Compile Include="ReCaptchaJsExtensions.cs" />
+    <Compile Include="Parameters\ResourceParameters.cs" />
+    <Compile Include="ReCaptchaApiJsExtensions.cs" />
     <Compile Include="ReCaptchaExtensions.cs" />
-    <Compile Include="RenderParametersExtensions.cs" />
-    <Compile Include="RenderParametersSerialiseOptions.cs" />
-    <Compile Include="RenderParameters.cs" />
-    <Compile Include="RenderThemeType.cs" />
-    <Compile Include="WidgetRenderType.cs" />
+    <Compile Include="Extensions\RenderParametersExtensions.cs" />
+    <Compile Include="Parameters\RenderParametersSerialiseOptions.cs" />
+    <Compile Include="Parameters\RenderParameters.cs" />
+    <Compile Include="Parameters\RenderThemeType.cs" />
+    <Compile Include="Parameters\WidgetRenderType.cs" />
+    <Compile Include="Extensions\TagBuilderExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -100,6 +101,7 @@
       <Name>ReCaptcha.Wrapper</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

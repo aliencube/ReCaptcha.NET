@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Aliencube.ReCaptcha.Wrapper.Mvc.Extensions;
+using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters;
 
 namespace Aliencube.ReCaptcha.Wrapper.Mvc
 {
     /// <summary>
     /// This represents the entity for <c>ReCaptcha</c> extensions.
     /// </summary>
-    public static partial class ReCaptchaExtensions
+    public static class ReCaptchaExtensions
     {
         /// <summary>
         /// Renders the reCaptcha HTML control.
@@ -97,17 +99,6 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             }
 
             return builder.ToMvcHtmlString(TagRenderMode.Normal);
-        }
-
-        /// <summary>
-        /// Converts HTML strings from <c>TagBuilder</c> instance.
-        /// </summary>
-        /// <param name="builder"><c>TagBuilder</c> instance.</param>
-        /// <param name="renderMode"><c>TagRenderMode</c>.</param>
-        /// <returns>Returns HTML strings converted.</returns>
-        private static MvcHtmlString ToMvcHtmlString(this TagBuilder builder, TagRenderMode renderMode)
-        {
-            return new MvcHtmlString(builder.ToString(renderMode));
         }
     }
 }

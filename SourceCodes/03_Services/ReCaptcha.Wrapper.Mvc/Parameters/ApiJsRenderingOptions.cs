@@ -1,6 +1,6 @@
 using System;
 
-namespace Aliencube.ReCaptcha.Wrapper.Mvc
+namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
     /// <summary>
     /// This specifies JavaScript rendering options.

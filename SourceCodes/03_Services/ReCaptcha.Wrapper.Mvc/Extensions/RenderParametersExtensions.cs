@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters;
 using Newtonsoft.Json;
 
-namespace Aliencube.ReCaptcha.Wrapper.Mvc
+namespace Aliencube.ReCaptcha.Wrapper.Mvc.Extensions
 {
     /// <summary>
     /// This represents the extension class for the <c>RenderParameters</c> class.

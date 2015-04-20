@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace Aliencube.ReCaptcha.Wrapper.Mvc
+namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
     /// <summary>
     /// This specifies the data type for reCaptcha control.

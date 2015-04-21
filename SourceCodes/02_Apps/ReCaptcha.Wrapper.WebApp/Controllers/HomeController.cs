@@ -28,25 +28,78 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
             this._reCaptcha = reCaptcha;
         }
 
-        public virtual async Task<ActionResult> Index()
+        public virtual ActionResult Index()
         {
-            var vm = new HomeIndexViewModel()
-                     {
-                         SiteKey = this._settings.SiteKey,
-                         ApiUrl = this._settings.ApiUrl,
-                     };
-            return View(vm);
+            return View();
+        }
+
+        public virtual async Task<ActionResult> Basic()
+        {
+            var vm = new HomeBasicViewModel()
+                         {
+                             SiteKey = this._settings.SiteKey,
+                             ApiUrl = this._settings.ApiUrl,
+                         };
+            return this.View(vm);
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult> Index(HomeIndexViewModel form)
+        public virtual async Task<ActionResult> Basic(HomeBasicViewModel form)
         {
-            var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
+            var result = await this.GetResponseAsync();
 
             var vm = form;
             vm.Success = result.Success;
             vm.ErrorCodes = result.ErrorCodes;
             return View(vm);
+        }
+
+        public virtual ActionResult Advanced()
+        {
+            var vm = new HomeBasicViewModel()
+                         {
+                             SiteKey = this._settings.SiteKey,
+                             ApiUrl = this._settings.ApiUrl,
+                         };
+            return this.View(vm);
+        }
+
+        [HttpPost]
+        public virtual async Task<ActionResult> Advanced(HomeBasicViewModel form)
+        {
+            var result = await this.GetResponseAsync();
+
+            var vm = form;
+            vm.Success = result.Success;
+            vm.ErrorCodes = result.ErrorCodes;
+            return View(vm);
+        }
+
+        public virtual ActionResult Callback()
+        {
+            var vm = new HomeBasicViewModel()
+                         {
+                             SiteKey = this._settings.SiteKey,
+                             ApiUrl = this._settings.ApiUrl,
+                         };
+            return this.View(vm);
+        }
+
+        [HttpPost]
+        public virtual async Task<ActionResult> Callback(HomeBasicViewModel form)
+        {
+            var result = await this.GetResponseAsync();
+
+            var vm = form;
+            vm.Success = result.Success;
+            vm.ErrorCodes = result.ErrorCodes;
+            return View(vm);
+        }
+
+        private async Task<ReCaptchaV2Response> GetResponseAsync()
+        {
+            var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
+            return result;
         }
     }
 }

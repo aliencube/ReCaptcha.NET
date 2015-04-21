@@ -3,9 +3,9 @@
 namespace Aliencube.ReCaptcha.Wrapper.WebApp.Models
 {
     /// <summary>
-    /// This represents the view model entity for Home/Index.
+    /// This represents the view model entity for Home/Basic.
     /// </summary>
-    public class HomeIndexViewModel
+    public class HomeBasicViewModel
     {
         /// <summary>
         /// Gets or sets the name.

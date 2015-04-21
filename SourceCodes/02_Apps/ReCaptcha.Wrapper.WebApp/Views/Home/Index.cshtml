@@ -1,45 +1,11 @@
-﻿@using Aliencube.ReCaptcha.Wrapper.Mvc
-@using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
-@model Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeIndexViewModel
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm(MVC.Home.ActionNames.Index, MVC.Home.Name, FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new Dictionary<string, object>() {{"class", "form-control"}})
-    </div>
-    @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey })
-    <input class="btn btn-default" type="submit" name="Submit" />
-}
-
-@if (IsPost)
-{
-    <div>
-        <ul>
-            <li>Success: @Model.Success</li>
-            @if (@Model.ErrorCodes != null && @Model.ErrorCodes.Any())
-            {
-                <li>
-                    ErrorCodes:
-                    <ul>
-                        @foreach (var errorCode in Model.ErrorCodes)
-                        {
-                            <li>@errorCode</li>
-                        }
-                    </ul>
-                </li>
-            }
-            <li>ErorCodes: @Model.ErrorCodes</li>
-        </ul>
-    </div>
-}
-
-@section Scripts
-{
-    @Html.ReCaptchaApiJs(Model.ApiUrl, ApiJsRenderingOptions.Async | ApiJsRenderingOptions.Defer)
-}
+<ul>
+    <li>@Html.ActionLink("Basic", MVC.Home.ActionNames.Basic)</li>
+    <li>@Html.ActionLink("Advanced", MVC.Home.ActionNames.Advanced)</li>
+    <li>@Html.ActionLink("Callback", MVC.Home.ActionNames.Callback)</li>
+</ul>

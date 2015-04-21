@@ -72,20 +72,42 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         public class ActionNamesClass
         {
             public readonly string Index = "Index";
+            public readonly string Basic = "Basic";
+            public readonly string Advanced = "Advanced";
+            public readonly string Callback = "Callback";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
             public const string Index = "Index";
+            public const string Basic = "Basic";
+            public const string Advanced = "Advanced";
+            public const string Callback = "Callback";
         }
 
 
-        static readonly ActionParamsClass_Index s_params_Index = new ActionParamsClass_Index();
+        static readonly ActionParamsClass_Basic s_params_Basic = new ActionParamsClass_Basic();
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public ActionParamsClass_Index IndexParams { get { return s_params_Index; } }
+        public ActionParamsClass_Basic BasicParams { get { return s_params_Basic; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public class ActionParamsClass_Index
+        public class ActionParamsClass_Basic
+        {
+            public readonly string form = "form";
+        }
+        static readonly ActionParamsClass_Advanced s_params_Advanced = new ActionParamsClass_Advanced();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Advanced AdvancedParams { get { return s_params_Advanced; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Advanced
+        {
+            public readonly string form = "form";
+        }
+        static readonly ActionParamsClass_Callback s_params_Callback = new ActionParamsClass_Callback();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Callback CallbackParams { get { return s_params_Callback; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Callback
         {
             public readonly string form = "form";
         }
@@ -99,8 +121,14 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string Advanced = "Advanced";
+                public readonly string Basic = "Basic";
+                public readonly string Callback = "Callback";
                 public readonly string Index = "Index";
             }
+            public readonly string Advanced = "~/Views/Home/Advanced.cshtml";
+            public readonly string Basic = "~/Views/Home/Basic.cshtml";
+            public readonly string Callback = "~/Views/Home/Callback.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
         }
     }
@@ -114,22 +142,79 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Index()
+        public override System.Web.Mvc.ActionResult Index()
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
             IndexOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void BasicOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Basic()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Basic);
+            BasicOverride(callInfo);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
 
         [NonAction]
-        partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeIndexViewModel form);
+        partial void BasicOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Index(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeIndexViewModel form)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Basic(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form)
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Basic);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "form", form);
-            IndexOverride(callInfo, form);
+            BasicOverride(callInfo, form);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
+        partial void AdvancedOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Advanced()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Advanced);
+            AdvancedOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void AdvancedOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Advanced(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Advanced);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "form", form);
+            AdvancedOverride(callInfo, form);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
+        partial void CallbackOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Callback()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Callback);
+            CallbackOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void CallbackOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Callback(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Callback);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "form", form);
+            CallbackOverride(callInfo, form);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
 

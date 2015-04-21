@@ -1,23 +1,26 @@
-﻿@using Aliencube.ReCaptcha.Wrapper.Mvc
+﻿@using System.Linq
+@using Aliencube.ReCaptcha.Wrapper.Mvc
 @using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
-@model Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel
+@model Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Advanced";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm(MVC.Home.ActionNames.Index, MVC.Home.Name, FormMethod.Post))
+@if (!IsPost)
 {
-    <div class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new Dictionary<string, object>() {{"class", "form-control"}})
-    </div>
-    @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey })
-    <input class="btn btn-default" type="submit" name="Submit" />
+    using (Html.BeginForm(MVC.Home.ActionNames.Advanced, MVC.Home.Name, FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextBoxFor(m => m.Name, new Dictionary<string, object>() { { "class", "form-control" } })
+        </div>
+        @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey, Theme = RenderThemeType.Dark })
+        <input class="btn btn-default" type="submit" name="Submit" />
+    }
 }
-
-@if (IsPost)
+else
 {
     <div>
         <ul>
@@ -41,5 +44,8 @@
 
 @section Scripts
 {
-    @Html.ReCaptchaApiJs(Model.ApiUrl, ApiJsRenderingOptions.Async | ApiJsRenderingOptions.Defer)
+    @if (!IsPost)
+    {
+        @Html.ReCaptchaApiJs(Model.ApiUrl, ApiJsRenderingOptions.Async | ApiJsRenderingOptions.Defer)
+    }
 }

@@ -35,7 +35,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
 
         public virtual async Task<ActionResult> Basic()
         {
-            var vm = new HomeBasicViewModel()
+            var vm = new HomeReCaptchaViewModel()
                          {
                              SiteKey = this._settings.SiteKey,
                              ApiUrl = this._settings.ApiUrl,
@@ -44,7 +44,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult> Basic(HomeBasicViewModel form)
+        public virtual async Task<ActionResult> Basic(HomeReCaptchaViewModel form)
         {
             var result = await this.GetResponseAsync();
 
@@ -56,7 +56,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
 
         public virtual ActionResult Advanced()
         {
-            var vm = new HomeBasicViewModel()
+            var vm = new HomeReCaptchaViewModel()
                          {
                              SiteKey = this._settings.SiteKey,
                              ApiUrl = this._settings.ApiUrl,
@@ -65,7 +65,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult> Advanced(HomeBasicViewModel form)
+        public virtual async Task<ActionResult> Advanced(HomeReCaptchaViewModel form)
         {
             var result = await this.GetResponseAsync();
 
@@ -77,7 +77,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
 
         public virtual ActionResult Callback()
         {
-            var vm = new HomeBasicViewModel()
+            var vm = new HomeReCaptchaViewModel()
                          {
                              SiteKey = this._settings.SiteKey,
                              ApiUrl = this._settings.ApiUrl,
@@ -86,7 +86,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<ActionResult> Callback(HomeBasicViewModel form)
+        public virtual async Task<ActionResult> Callback(HomeReCaptchaViewModel form)
         {
             var result = await this.GetResponseAsync();
 

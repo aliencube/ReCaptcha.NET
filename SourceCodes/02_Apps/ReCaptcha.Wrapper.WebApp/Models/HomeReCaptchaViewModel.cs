@@ -5,7 +5,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Models
     /// <summary>
     /// This represents the view model entity for Home/Basic.
     /// </summary>
-    public class HomeBasicViewModel
+    public class HomeReCaptchaViewModel
     {
         /// <summary>
         /// Gets or sets the name.

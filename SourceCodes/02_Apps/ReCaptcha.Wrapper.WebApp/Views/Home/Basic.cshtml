@@ -1,6 +1,6 @@
-﻿@using Aliencube.ReCaptcha.Wrapper.Mvc
-@using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
-@model Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel
+﻿@using System.Linq
+@using Aliencube.ReCaptcha.Wrapper.Mvc
+@model Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel
 @{
     ViewBag.Title = "Basic";
 }
@@ -15,7 +15,7 @@
             @Html.LabelFor(m => m.Name)
             @Html.TextBoxFor(m => m.Name, new Dictionary<string, object>() { { "class", "form-control" } })
         </div>
-        @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey })
+        @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" }, { "data-sitekey", Model.SiteKey } })
         <input class="btn btn-default" type="submit" name="Submit" />
     }
 }
@@ -45,6 +45,6 @@ else
 {
     @if (!IsPost)
     {
-        @Html.ReCaptchaApiJs(Model.ApiUrl, ApiJsRenderingOptions.Async | ApiJsRenderingOptions.Defer)
+        @Html.ReCaptchaApiJs(Model.ApiUrl)
     }
 }

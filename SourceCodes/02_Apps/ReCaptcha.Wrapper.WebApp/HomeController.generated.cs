@@ -161,10 +161,10 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         }
 
         [NonAction]
-        partial void BasicOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form);
+        partial void BasicOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel form);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Basic(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Basic(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel form)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Basic);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "form", form);
@@ -184,10 +184,10 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         }
 
         [NonAction]
-        partial void AdvancedOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form);
+        partial void AdvancedOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel form);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Advanced(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Advanced(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel form)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Advanced);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "form", form);
@@ -207,10 +207,10 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
         }
 
         [NonAction]
-        partial void CallbackOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form);
+        partial void CallbackOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel form);
 
         [NonAction]
-        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Callback(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeBasicViewModel form)
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Callback(Aliencube.ReCaptcha.Wrapper.WebApp.Models.HomeReCaptchaViewModel form)
         {
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Callback);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "form", form);

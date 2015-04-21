@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
     /// <summary>
@@ -14,11 +16,13 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
         /// <summary>
         /// Identifies the widget is rendered onload.
         /// </summary>
+        [EnumMember(Value = "onload")]
         Onload = 1,
 
         /// <summary>
         /// Identifies the widget is rendered explicitly.
         /// </summary>
+        [EnumMember(Value = "explicit")]
         Explicit = 2,
     }
 }

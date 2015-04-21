@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Serialization;
 
 namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
@@ -17,11 +18,13 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
         /// <summary>
         /// Identifies asynchronous rendering option is defined.
         /// </summary>
+        [EnumMember(Value = "async")]
         Async = 1 << 0,
 
         /// <summary>
         /// Identifies deer rendering option is defined.
         /// </summary>
+        [EnumMember(Value = "defer")]
         Defer = 1 << 1,
     }
 }

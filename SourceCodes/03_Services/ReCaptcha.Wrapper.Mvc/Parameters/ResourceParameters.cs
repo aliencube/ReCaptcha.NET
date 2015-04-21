@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
@@ -18,12 +19,14 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
         /// Gets or sets the render option.
         /// </summary>
         [JsonProperty(PropertyName = "render")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public WidgetRenderType Render { get; set; }
 
         /// <summary>
         /// Gets or sets the language code to display reCaptcha control.
         /// </summary>
         [JsonProperty(PropertyName = "hl")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public WidgetLanguageCode LanguageCode { get; set; }
     }
 }

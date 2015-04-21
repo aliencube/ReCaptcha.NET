@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
 {
@@ -18,12 +19,14 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc.Parameters
         /// Gets or sets the theme.
         /// </summary>
         [JsonProperty(PropertyName = "data-theme")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public RenderThemeType Theme { get; set; }
 
         /// <summary>
         /// Gets or sets the data type.
         /// </summary>
         [JsonProperty(PropertyName = "data-type")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public RenderDataType DataType { get; set; }
 
         /// <summary>

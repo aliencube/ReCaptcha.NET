@@ -129,7 +129,7 @@ In order to handle the reCaptcha control in your controllers, take a look at the
 [HttpPost]
 public virtual async Task<ActionResult> Index(HomeReCaptchaViewModel form)
 {
-  var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
+  var result = await this._reCaptcha.SiteVerifyAsync(this.Request.Form, this.Request.ServerVariables);
 
   var vm = form;
   vm.Success = result.Success;
@@ -138,7 +138,7 @@ public virtual async Task<ActionResult> Index(HomeReCaptchaViewModel form)
 }
 ```
 
-* `ReCaptchaV2.SiteVerifyAsync()` takes parameters of `ReCaptchaV2Settings`, `Form` and `ServerVariables` and returns the result.
+* `ReCaptchaV2.SiteVerifyAsync()` takes parameters of `Form` and `ServerVariables` and returns the result.
 * More details can be found on [HomeController.cs](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Controllers/HomeController.cs) as an example.
 
 

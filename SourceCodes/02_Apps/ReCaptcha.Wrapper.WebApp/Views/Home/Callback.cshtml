@@ -26,6 +26,7 @@ else
 {
     <div>
         <ul>
+            <li>Name: @Model.Name</li>
             <li>Success: @Model.Success</li>
             @if (@Model.ErrorCodes != null && @Model.ErrorCodes.Any())
             {
@@ -39,7 +40,6 @@ else
                     </ul>
                 </li>
             }
-            <li>ErorCodes: @Model.ErrorCodes</li>
         </ul>
     </div>
 }

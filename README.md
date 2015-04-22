@@ -6,7 +6,7 @@
 ## NuGet Package Status ##
 
 | **Aliencube.ReCaptcha.NET** | **Aliencube.ReCaptcha.NET.MVC** |
-|:-----------------------------:|:-------------------------------:|
+|:---------------------------:|:-------------------------------:|
 | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) | [![](https://img.shields.io/nuget/v/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) [![](https://img.shields.io/nuget/dt/Aliencube.ReCaptcha.NET.MVC.svg)](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) |
 
 
@@ -17,17 +17,16 @@
 | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/master?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/dev?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/dev) | [![Build status](https://ci.appveyor.com/api/projects/status/i5ife0np7indhdiu/branch/release?svg=true)](https://ci.appveyor.com/project/justinyoo/recaptcha-net/branch/release) |
 
 
-## Getting Started ##
+## Getting Started - Basic Usage ##
 
 In order to use **ReCaptcha.NET** in your apps, you should get the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package as a minimum. The following section shows how this is used in ASP.NET MVC apps.
 
+For your [ASP.NET MVC](https://asp.net/mvc) apps, you should get the [**Aliencube.ReCaptcha.NET.MVC**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) package, on top of the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package.
 
-### ASP.NET MVC ###
-
-In order to use **ReCaptcha.NET** in your [ASP.NET MVC](https://asp.net/mvc) apps, you should get the [**Aliencube.ReCaptcha.NET.MVC**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/) package, on top of the [**Aliencube.ReCaptcha.NET**](https://www.nuget.org/packages/Aliencube.ReCaptcha.NET/) package. Then add the following into your Razor view script:
+Then add the following into your Razor view script:
 
 ```csharp
-@using (Html.BeginForm(MVC.Home.ActionNames.Index, MVC.Home.Name, FormMethod.Post))
+@using (Html.BeginForm(MVC.Home.ActionNames.Basic, MVC.Home.Name, FormMethod.Post))
 {
   ...
 
@@ -38,19 +37,97 @@ In order to use **ReCaptcha.NET** in your [ASP.NET MVC](https://asp.net/mvc) app
 
 @section Scripts
 {
-  @Html.ReCaptchaApiJs(new Dictionary<string, object>() { { "src", Model.ApiUrl } })
+  @Html.ReCaptchaApiJs(Model.ApiUrl)
 }
 ```
 
 * `@Html.Recaptcha()` renders the reCaptcha control.
 * `@Html.ReCaptchaApiJs()` renders JavaScript for the reCaptcha control.
-* More details can be found on [Index.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Index.cshtml) as an example.
+* More details can be found on [Basic.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Basic.cshtml) as an example.
 
-In order to handle this reCaptcha control in your controllers, take a look at the following:
+
+## Advanced Usage ###
+
+Using the `RenderParameters` class gives your more control. Properties in the `RenderParameters` class can be found at: [https://developers.google.com/recaptcha/docs/display#render_param](https://developers.google.com/recaptcha/docs/display#render_param).
+
+```csharp
+@using (Html.BeginForm(MVC.Home.ActionNames.Advanced, MVC.Home.Name, FormMethod.Post))
+{
+  ...
+
+  @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey, Theme = RenderThemeType.Dark })
+
+  ...
+}
+```
+
+Rendering `api.js` can be asynchronous. For this, you can add `ApiJsRenderingOptions` enum like:
+
+```csharp
+@section Scripts
+{
+  @Html.ReCaptchaApiJs(Model.ApiUrl, ApiJsRenderingOptions.Async | ApiJsRenderingOptions.Defer)
+}
+```
+
+* `@Html.Recaptcha()` renders the reCaptcha control.
+* `@Html.ReCaptchaApiJs()` renders JavaScript for the reCaptcha control.
+* More details can be found on [Advanced.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Advanced.cshtml) as an example.
+
+
+## Callback Usage ##
+
+Instead of rendering the reCaptcha controls automatically, you can explicitly initialise rendering options by using a callback function.
+
+```csharp
+@section Scripts
+{
+  var callback = "onLoadCallback";
+  var elementId = "recaptcha";
+
+  @Html.ReCaptchaApiJs(Model.ApiUrl,
+                       ApiJsRenderingOptions.Async | ApiJsRenderingOptions.Defer,
+                       new ResourceParameters()
+                       {
+                         OnLoad = callback,
+                         Render = WidgetRenderType.Explicit,
+                         LanguageCode = WidgetLanguageCode.Korean
+                       })
+  @Html.ReCaptchaCallbackJs(callback,
+                            elementId,
+                            new RenderParameters()
+                            {
+                              SiteKey = Model.SiteKey,
+                              Theme = RenderThemeType.Dark
+                            })
+}
+```
+
+For this, the `ResourceParameters` class in `ReCaptchaApiJs()` is used. This enables to load callback function and the callback function is loaded by using `ReCaptchaCallbackJs()` method. As all rendering options are defined here, the actual HTML part look like:
+
+```csharp
+@using (Html.BeginForm(MVC.Home.ActionNames.Advanced, MVC.Home.Name, FormMethod.Post))
+{
+  ...
+
+  <div class="form-group" id="@elementId"></div>
+
+  ...
+}
+```
+
+* `@Html.ReCaptchaApiJs()` renders JavaScript for the reCaptcha control.
+* `@Html.RecaptchaCallbackJs()` renders JavaScript callback function for the reCaptcha control.
+* More details can be found on [Advanced.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Callback.cshtml) as an example.
+
+
+## Controller ##
+
+In order to handle the reCaptcha control in your controllers, take a look at the following:
 
 ```csharp
 [HttpPost]
-public virtual async Task<ActionResult> Index(HomeIndexViewModel form)
+public virtual async Task<ActionResult> Index(HomeReCaptchaViewModel form)
 {
   var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
 
@@ -124,8 +201,7 @@ If you want to simply use the `appSettings` section, you can do the following in
 
 ## Acknowledgements ##
 
-* **ReCaptcha.NET** currently support Version 2 only. Version 1 will be implemented later.
-* [JavaScript configuration](https://developers.google.com/recaptcha/docs/display) will be implemented later.
+* **ReCaptcha.NET** currently support Version 2 only. Find another library for Version 1.
 
 
 ## Contribution ##

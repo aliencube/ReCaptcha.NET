@@ -98,7 +98,7 @@ namespace Aliencube.ReCaptcha.Wrapper.WebApp.Controllers
 
         private async Task<ReCaptchaV2Response> GetResponseAsync()
         {
-            var result = await this._reCaptcha.SiteVerifyAsync(this._settings, this.Request.Form, this.Request.ServerVariables);
+            var result = await this._reCaptcha.SiteVerifyAsync(this.Request.Form, this.Request.ServerVariables);
             return result;
         }
     }

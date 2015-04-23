@@ -1,22 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-    <!-- This wrapper supports both custom configuration section, reCaptchaV2Settings, and appSettings section. -->
-    <!-- Even though the reCaptchaV2Settings section is preferrable, if it's not defined, it alternatively looks for the appSettings section. -->
-    <!-- If the reCaptchaV2Settings section is defined, the values defined in the appSettings section are ignored. -->
     <configSections>
-        <section name="reCaptchaV2Settings" type="Aliencube.ReCaptcha.Wrapper.ReCaptchaV2Settings, Aliencube.ReCaptcha.Wrapper" requirePermission="false" xdt:Transform="Remove" xdt:Locator="Match(name)" />
+        <section name="reCaptchaV2Settings" xdt:Transform="Remove" xdt:Locator="Match(name)" />
     </configSections>
+    <configSections xdt:Transform="RemoveAll" xdt:Locator="Condition(count(*)=0)" />
 
-    <reCaptchaV2Settings
-        requestUrl="https://www.google.com/recaptcha/api/siteverify"
-        apiUrl="https://www.google.com/recaptcha/api.js"
-        siteKey="[YOUR_SITE_KEY]"
-        secretKey="[YOUR_SECRET_KEY]" xdt:Transform="Remove" />
+    <reCaptchaV2Settings xdt:Transform="Remove" />
 
     <appSettings>
-        <add key="RequestUrl" value="https://www.google.com/recaptcha/api/siteverify" xdt:Transform="Remove" xdt:Locator="Match(key)" />
-        <add key="ApiUrl" value="https://www.google.com/recaptcha/api.js" xdt:Transform="Remove" xdt:Locator="Match(key)" />
-        <add key="SiteKey" value="[YOUR_SITE_KEY]" xdt:Transform="Remove" xdt:Locator="Match(key)" />
-        <add key="SecretKey" value="[YOUR_SECRET_KEY]" xdt:Transform="Remove" xdt:Locator="Match(key)" />
+        <add key="RequestUrl" xdt:Transform="Remove" xdt:Locator="Match(key)" />
+        <add key="ApiUrl" xdt:Transform="Remove" xdt:Locator="Match(key)" />
+        <add key="SiteKey" xdt:Transform="Remove" xdt:Locator="Match(key)" />
+        <add key="SecretKey" xdt:Transform="Remove" xdt:Locator="Match(key)" />
     </appSettings>
 </configuration>

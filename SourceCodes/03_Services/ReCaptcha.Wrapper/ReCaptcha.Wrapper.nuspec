@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>Aliencube.ReCaptcha.NET</id>
-        <version>1.0.2.0</version>
+        <version>1.0.3.0</version>
         <title>ReCaptcha.NET</title>
         <authors>Aliencube Community</authors>
         <owners>aliencube</owners>

@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>Aliencube.ReCaptcha.NET.MVC</id>
-        <version>1.0.2.0</version>
+        <version>1.0.3.0</version>
         <title>ReCaptcha.NET MVC</title>
         <authors>Aliencube Community</authors>
         <owners>aliencube</owners>
@@ -13,7 +13,7 @@
         <copyright>Aliencube Community Copyright 2015</copyright>
         <tags>Aliencube, reCaptcha, ASP.NET MVC</tags>
         <dependencies>
-            <dependency id="Aliencube.ReCaptcha.NET" version="1.0.2.0" />
+            <dependency id="Aliencube.ReCaptcha.NET" version="1.0.3.0" />
             <dependency id="Microsoft.AspNet.Mvc" version="5.0.0" />
         </dependencies>
     </metadata>

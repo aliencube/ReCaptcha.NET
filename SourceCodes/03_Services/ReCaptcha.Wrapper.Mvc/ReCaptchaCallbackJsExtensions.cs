@@ -3,11 +3,10 @@ using System.Text;
 using System.Web.Mvc;
 using Aliencube.ReCaptcha.Wrapper.Mvc.Extensions;
 using Aliencube.ReCaptcha.Wrapper.Mvc.Parameters;
+using Newtonsoft.Json;
 
 namespace Aliencube.ReCaptcha.Wrapper.Mvc
 {
-    using Newtonsoft.Json;
-
     /// <summary>
     /// This represents the entity for <c>ReCaptcha</c> callback extensions.
     /// </summary>

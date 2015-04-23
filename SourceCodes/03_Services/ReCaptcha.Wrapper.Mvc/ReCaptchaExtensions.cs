@@ -19,19 +19,14 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="classNames">List of CSS class names.</param>
         /// <param name="siteKey">reCaptcha site key.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IEnumerable<string> classNames, string siteKey)
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IEnumerable<string> classNames = null, string siteKey = null)
         {
-            if (classNames == null)
+            string className = null;
+            if (classNames != null)
             {
-                throw new ArgumentNullException("classNames");
+                className = String.Join(" ", classNames);
             }
 
-            if (String.IsNullOrWhiteSpace(siteKey))
-            {
-                throw new ArgumentNullException("siteKey");
-            }
-
-            var className = String.Join(" ", classNames);
             return htmlHelper.ReCaptcha(className, siteKey);
         }
 
@@ -42,26 +37,26 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="className">List of CSS class names.</param>
         /// <param name="siteKey">reCaptcha site key.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, string className, string siteKey)
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, string className = null, string siteKey = null)
         {
-            if (String.IsNullOrWhiteSpace(className))
+            IDictionary<string, object> htmlAttributes = null;
+            if (!String.IsNullOrWhiteSpace(className))
             {
-                throw new ArgumentNullException("siteKey");
-            }
-
-            if (String.IsNullOrWhiteSpace(siteKey))
-            {
-                throw new ArgumentNullException("siteKey");
-            }
-
-            var htmlAttributes = new Dictionary<string, object>()
+                htmlAttributes = new Dictionary<string, object>()
                                      {
                                          { "class", className },
                                      };
-            var parameters = new RenderParameters()
+            }
+
+            RenderParameters parameters = null;
+            if (!String.IsNullOrWhiteSpace(siteKey))
+            {
+                parameters = new RenderParameters()
                                  {
                                      SiteKey = siteKey
                                  };
+            }
+
             return htmlHelper.ReCaptcha(htmlAttributes, parameters);
         }
 
@@ -72,15 +67,14 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="htmlAttributes">List of HTML attributes.</param>
         /// <param name="parameters"><c>ReCaptchaParameters</c> object.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, RenderParameters parameters = null)
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes = null, RenderParameters parameters = null)
         {
-            if (htmlAttributes == null)
-            {
-                throw new ArgumentNullException("htmlAttributes");
-            }
-
             var builder = new TagBuilder("div");
-            builder.MergeAttributes(htmlAttributes);
+
+            if (htmlAttributes != null)
+            {
+                builder.MergeAttributes(htmlAttributes);
+            }
 
             if (parameters != null)
             {

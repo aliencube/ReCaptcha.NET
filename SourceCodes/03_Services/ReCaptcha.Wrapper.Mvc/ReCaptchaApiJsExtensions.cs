@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Web.Mvc;
 using Aliencube.ReCaptcha.Wrapper.Extensions;
 using Aliencube.ReCaptcha.Wrapper.Mvc.Extensions;
@@ -145,18 +144,6 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
             builder.Attributes["src"] = src;
 
             return builder.ToMvcHtmlString(TagRenderMode.Normal);
-        }
-
-        /// <summary>
-        /// Gets the property value from the <c>PropertyInfo</c> instance.
-        /// </summary>
-        /// <param name="propertyInfo"><c>PropertyInfo</c> instance.</param>
-        /// <param name="parameters"><c>ResourceParameters</c> instance.</param>
-        /// <returns>Returns the property value.</returns>
-        private static string GetPropertyValue(PropertyInfo propertyInfo, ResourceParameters parameters)
-        {
-            var value = Convert.ToString(propertyInfo.GetValue(parameters, null));
-            return propertyInfo.PropertyType.IsEnum ? value.ToLower() : value;
         }
     }
 }

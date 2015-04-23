@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Net.Http;
@@ -40,13 +41,35 @@ namespace Aliencube.ReCaptcha.Wrapper
         /// <param name="form">Form values collection.</param>
         /// <param name="serverVariables">Server variables collection.</param>
         /// <returns>Returns the <c>ReCaptchaV2Request</c> instance.</returns>
-        public ReCaptchaV2Request GetReCaptchaV2Request(NameValueCollection form, NameValueCollection serverVariables)
+        public ReCaptchaV2Request GetReCaptchaV2Request(NameValueCollection form, NameValueCollection serverVariables = null)
         {
+            if (form == null)
+            {
+                throw new ArgumentNullException("form");
+            }
+
+            if (!form.AllKeys.Contains("g-recaptcha-response"))
+            {
+                throw new KeyNotFoundException();
+            }
+
+            var response = form["g-recaptcha-response"];
+            if (String.IsNullOrWhiteSpace(response))
+            {
+                throw new InvalidOperationException("Response value not found");
+            }
+
+            string remoteAddr = null;
+            if (serverVariables != null && serverVariables.AllKeys.Contains("REMOTE_ADDR"))
+            {
+                remoteAddr = serverVariables["REMOTE_ADDR"];
+            }
+
             var request = new ReCaptchaV2Request()
                           {
                               Secret = this._settings.SecretKey,
-                              Response = form["g-recaptcha-response"],
-                              RemoteIp = serverVariables["REMOTE_ADDR"]
+                              Response = response,
+                              RemoteIp = remoteAddr,
                           };
             return request;
         }
@@ -57,8 +80,18 @@ namespace Aliencube.ReCaptcha.Wrapper
         /// <param name="form">Form values collection.</param>
         /// <param name="serverVariables">Server variables collection.</param>
         /// <returns>Returns <c>ReCaptchaV2Response</c> object.</returns>
-        public async Task<ReCaptchaV2Response> SiteVerifyAsync(NameValueCollection form, NameValueCollection serverVariables)
+        public async Task<ReCaptchaV2Response> SiteVerifyAsync(NameValueCollection form, NameValueCollection serverVariables = null)
         {
+            if (form == null)
+            {
+                throw new ArgumentNullException("form");
+            }
+
+            if (!form.AllKeys.Contains("g-recaptcha-response"))
+            {
+                throw new KeyNotFoundException();
+            }
+
             var request = this.GetReCaptchaV2Request(form, serverVariables);
             var response = await this.SiteVerifyAsync(request);
             return response;

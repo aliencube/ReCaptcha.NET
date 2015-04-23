@@ -15,7 +15,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Interfaces
         /// <param name="form">Form values collection.</param>
         /// <param name="serverVariables">Server variables collection.</param>
         /// <returns>Returns the <c>ReCaptchaV2Request</c> instance.</returns>
-        ReCaptchaV2Request GetReCaptchaV2Request(NameValueCollection form, NameValueCollection serverVariables);
+        ReCaptchaV2Request GetReCaptchaV2Request(NameValueCollection form, NameValueCollection serverVariables = null);
 
         /// <summary>
         /// Verifies the request asynchronously.
@@ -23,7 +23,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Interfaces
         /// <param name="form">Form values collection.</param>
         /// <param name="serverVariables">Server variables collection.</param>
         /// <returns>Returns <c>ReCaptchaV2Response</c> object.</returns>
-        Task<ReCaptchaV2Response> SiteVerifyAsync(NameValueCollection form, NameValueCollection serverVariables);
+        Task<ReCaptchaV2Response> SiteVerifyAsync(NameValueCollection form, NameValueCollection serverVariables = null);
 
         /// <summary>
         /// Verifies the request asynchronously.

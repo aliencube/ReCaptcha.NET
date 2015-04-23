@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using Aliencube.ReCaptcha.Wrapper.Interfaces;
@@ -33,6 +34,20 @@ namespace Aliencube.ReCaptcha.Wrapper.Tests
             {
                 this._settings.Dispose();
             }
+        }
+
+        [Test]
+        [TestCase("[YOUR_SECRET_KEY]", "YOUR_RESPONSE_KEY", "127.0.0.1")]
+        public void GetReCaptchaV2Request_GivenFormAndServerVariables_Should_ReturnReCaptchaV2Request(string secretKey, string responseKey, string remoteIp)
+        {
+            var form = new NameValueCollection() { { "g-recaptcha-response", responseKey } };
+            var serverVariables = new NameValueCollection() { { "REMOTE_ADDR", remoteIp } };
+
+            this._reCaptcha = new ReCaptchaV2(this._settings);
+            var request = this._reCaptcha.GetReCaptchaV2Request(form, serverVariables);
+            request.Secret.Should().Be(secretKey);
+            request.Response.Should().Be(responseKey);
+            request.RemoteIp.Should().Be(remoteIp);
         }
 
         [Test]

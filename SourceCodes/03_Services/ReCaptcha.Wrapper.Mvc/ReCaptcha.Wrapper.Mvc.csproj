@@ -95,6 +95,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="ReCaptcha.Wrapper.Mvc.nuspec" />
+    <None Include="Web.config.install.xdt">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.config.uninstall.xdt">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReCaptcha.Wrapper\ReCaptcha.Wrapper.csproj">

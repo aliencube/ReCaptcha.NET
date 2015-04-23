@@ -18,5 +18,6 @@
     </metadata>
     <files>
         <file src="bin\Release\**\Aliencube.ReCaptcha.Wrapper.*" target="lib" />
+        <file src="*.xdt" target="content" />
     </files>
 </package>

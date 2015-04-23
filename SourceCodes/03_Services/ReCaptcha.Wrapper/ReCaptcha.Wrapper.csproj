@@ -59,6 +59,12 @@
     <Compile Include="ReCaptchaV2Settings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config.install.xdt">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.config.uninstall.xdt">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>

@@ -67,7 +67,19 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="htmlAttributes">List of HTML attributes.</param>
         /// <param name="parameters"><c>ReCaptchaParameters</c> object.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
-        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes = null, RenderParameters parameters = null)
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, object htmlAttributes, RenderParameters parameters)
+        {
+            return htmlHelper.ReCaptcha(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes), parameters);
+        }
+
+        /// <summary>
+        /// Renders the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="htmlAttributes">List of HTML attributes.</param>
+        /// <param name="parameters"><c>ReCaptchaParameters</c> object.</param>
+        /// <returns>Returns the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptcha(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes, RenderParameters parameters)
         {
             var builder = new TagBuilder("div");
 

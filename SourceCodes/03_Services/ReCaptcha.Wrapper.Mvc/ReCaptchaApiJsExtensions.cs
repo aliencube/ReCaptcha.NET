@@ -26,7 +26,7 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
                 throw new ArgumentNullException("src");
             }
 
-            return htmlHelper.ReCaptchaApiJs(src, ApiJsRenderingOptions.None);
+            return htmlHelper.ReCaptchaApiJs(src, ApiJsRenderingOptions.None, null);
         }
 
         /// <summary>
@@ -74,6 +74,22 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
         /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
         /// <param name="htmlAttributes">List of HTML attributes.</param>
         /// <returns>Returns the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, object htmlAttributes)
+        {
+            if (htmlAttributes == null)
+            {
+                throw new ArgumentNullException("htmlAttributes");
+            }
+
+            return htmlHelper.ReCaptchaApiJs(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes), ApiJsRenderingOptions.None, null);
+        }
+
+        /// <summary>
+        /// Renders the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="htmlAttributes">List of HTML attributes.</param>
+        /// <returns>Returns the reCaptcha HTML control.</returns>
         public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, IDictionary<string, object> htmlAttributes)
         {
             if (htmlAttributes == null)
@@ -81,7 +97,24 @@ namespace Aliencube.ReCaptcha.Wrapper.Mvc
                 throw new ArgumentNullException("htmlAttributes");
             }
 
-            return htmlHelper.ReCaptchaApiJs(htmlAttributes, ApiJsRenderingOptions.None);
+            return htmlHelper.ReCaptchaApiJs(htmlAttributes, ApiJsRenderingOptions.None, null);
+        }
+
+        /// <summary>
+        /// Renders the reCaptcha HTML control.
+        /// </summary>
+        /// <param name="htmlHelper"><c>HtmlHelper</c> instance.</param>
+        /// <param name="htmlAttributes">List of HTML attributes.</param>
+        /// <param name="options"><c>JsRenderingOptions</c> enum value.</param>
+        /// <returns>Returns the reCaptcha HTML control.</returns>
+        public static MvcHtmlString ReCaptchaApiJs(this HtmlHelper htmlHelper, object htmlAttributes, ApiJsRenderingOptions options)
+        {
+            if (htmlAttributes == null)
+            {
+                throw new ArgumentNullException("htmlAttributes");
+            }
+
+            return htmlHelper.ReCaptchaApiJs(HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes), options, null);
         }
 
         /// <summary>

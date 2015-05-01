@@ -14,9 +14,9 @@
     {
         <div class="form-group">
             @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name, new Dictionary<string, object>() { { "class", "form-control" } })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
         </div>
-        @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey, Theme = RenderThemeType.Dark })
+        @Html.ReCaptcha(new RenderParameters() { SiteKey = Model.SiteKey, Theme = RenderThemeType.Dark }, new { @class = "form-group" })
         <input class="btn btn-default" type="submit" name="Submit" />
     }
 }

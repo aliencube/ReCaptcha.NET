@@ -24,10 +24,12 @@
                 @Html.ActionLink(appTitle, MVC.Home.ActionNames.Index, MVC.Home.Name, new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink("Basic", MVC.Home.ActionNames.Basic)</li>
                     <li>@Html.ActionLink("Advanced", MVC.Home.ActionNames.Advanced)</li>
                     <li>@Html.ActionLink("Callback", MVC.Home.ActionNames.Callback)</li>
+                    <li><a href="https://github.com/aliencube/ReCaptcha.NET">GitHub</a></li>
+                    <li><a href="https://www.nuget.org/packages/Aliencube.ReCaptcha.NET.MVC/">NuGet</a></li>
                 </ul>
             </div>
         </div>
@@ -36,8 +38,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2015 @thisYear &ndash; @appTitle</p>
+        <footer class="text-right">
+            <p>&copy; 2015 @thisYear | <a href="https://github.com/aliencube">Aliencube Community</a></p>
         </footer>
     </div>
 

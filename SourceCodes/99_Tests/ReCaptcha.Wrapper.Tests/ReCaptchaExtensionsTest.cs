@@ -28,32 +28,23 @@ namespace Aliencube.ReCaptcha.Wrapper.Tests
         }
 
         [Test]
-        [TestCase("class1,class2", "YOUR_SITE_KEY")]
-        [TestCase("class1 class2", "YOUR_SITE_KEY")]
-        [TestCase(null, "YOUR_SITE_KEY")]
-        public void GetReCaptchaHtml_GivenClassNamesAndSiteKey_ReturnReCaptchaHtml(string className, string siteKey)
+        [TestCase("YOUR_SITE_KEY")]
+        public void GivenSiteKey_Should_ReturnReCaptchaHtml(string siteKey)
         {
-            MvcHtmlString reCaptcha;
-            if (String.IsNullOrWhiteSpace(className) || !className.Contains(","))
-            {
-                reCaptcha = this._htmlHelper.ReCaptcha(className, siteKey);
-            }
-            else
-            {
-                var classNames = className.Split(new string[] { ",", " " }, StringSplitOptions.RemoveEmptyEntries);
-                reCaptcha = this._htmlHelper.ReCaptcha(classNames, siteKey);
-            }
+            var reCaptcha = this._htmlHelper.ReCaptcha(siteKey);
 
-            if (!String.IsNullOrWhiteSpace(className))
-            {
-                reCaptcha.ToHtmlString()
-                         .Should()
-                         .MatchRegex("class=.+" + className.Replace(",", " "))
-                         .And.Contain("g-recaptcha");
-            }
-            reCaptcha.ToHtmlString()
-                     .Should()
-                     .Contain(String.Format("data-sitekey=\"{0}\"", siteKey));
+            reCaptcha.ToHtmlString().Should().Contain(String.Format("data-sitekey=\"{0}\"", siteKey));
+        }
+
+        [Test]
+        [TestCase("YOUR_SITE_KEY", "class1 class2")]
+        public void GivenSiteKeyAndAttributes_Should_ReturnReCaptchaHtml(string siteKey, string @class)
+        {
+            var htmlAttributes = new { @class = @class };
+            var reCaptcha = this._htmlHelper.ReCaptcha(siteKey, htmlAttributes);
+
+            reCaptcha.ToHtmlString().Should().Contain(String.Format("data-sitekey=\"{0}\"", siteKey));
+            reCaptcha.ToHtmlString().Should().MatchRegex("class=.+" + @class).And.Contain("g-recaptcha");
         }
 
         [Test]

@@ -30,7 +30,8 @@ Then add the following into your Razor view script:
 {
   ...
 
-  @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "[class names]" }, { "data-sitekey", Model.SiteKey } })
+  @Html.ReCaptcha(Model.SiteKey,
+                  new { @class = "class1 class2" })
 
   ...
 }
@@ -55,7 +56,8 @@ Using the `RenderParameters` class gives your more control. Properties in the `R
 {
   ...
 
-  @Html.ReCaptcha(new Dictionary<string, object>() { { "class", "form-group" } }, new RenderParameters() { SiteKey = Model.SiteKey, Theme = RenderThemeType.Dark })
+  @Html.ReCaptcha(new RenderParameters() { SiteKey = Model.SiteKey, Theme = RenderThemeType.Dark },
+                  new { @class = "form-group" })
 
   ...
 }

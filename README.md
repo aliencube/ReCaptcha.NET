@@ -149,7 +149,7 @@ public virtual async Task<ActionResult> Index(HomeReCaptchaViewModel form)
 As you can see the above example codes, configuration settings needs to be instantiated first by calling:
 
 ```csharp
-var settings = ConverterSettings.CreateInstance();
+var settings = ReCaptchaV2Settings.CreateInstance();
 ```
 
 Alternatively, the `settings` instance can be injected by any IoC container. The following code is, for example, using [Autofac](http://autofac.org)

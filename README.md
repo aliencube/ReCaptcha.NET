@@ -120,7 +120,7 @@ For this, the `ResourceParameters` class in `ReCaptchaApiJs()` is used. This ena
 
 * `@Html.ReCaptchaApiJs()` renders JavaScript for the reCaptcha control.
 * `@Html.RecaptchaCallbackJs()` renders JavaScript callback function for the reCaptcha control.
-* More details can be found on [Advanced.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Callback.cshtml) as an example.
+* More details can be found on [Callback.cshtml](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/Views/Home/Callback.cshtml) as an example.
 
 
 ## Controller ##
@@ -200,6 +200,7 @@ If you want to simply use the `appSettings` section, you can do the following in
 > 
 > * Both SiteKey and SecretKey **MUST** be changed to yours before running this code; otherwise you'll get an error. They can be obtained from [https://google.com/recaptcha](https://google.com/recaptcha), once you login.
 
+* More details can be found on [DependencyConfig.cs](https://github.com/aliencube/ReCaptcha.NET/blob/master/SourceCodes/02_Apps/ReCaptcha.Wrapper.WebApp/App_Start/DependencyConfig.cs) as an example.
 
 ## Acknowledgements ##
 
